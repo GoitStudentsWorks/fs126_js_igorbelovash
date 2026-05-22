@@ -1,2 +1,2 @@
 import './js/dessert-list.js';
-import './js/contact-us.js';
+import './js/about-us.js';
