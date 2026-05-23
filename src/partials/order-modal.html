@@ -16,6 +16,8 @@
           id="name"
           type="text"
           placeholder="Вікторія"
+          minlength="2"
+          pattern="[А-Яа-яІіЇїЄєҐґ\s]+"
       /></label>
 
       <label class="modal-label" for="phone">
@@ -27,6 +29,7 @@
           name="phone"
           type="tel"
           placeholder="38 0_ ___"
+          pattern="38[0-9]{10}"
         />
       </label>
       <label class="modal-label" for="comment">
@@ -37,6 +40,7 @@
           id="comment"
           name="textComment"
           placeholder="Ваш коментар"
+          minlength="10"
         ></textarea>
       </label>
       <button class="modal-submit" type="submit">Надіслати заявку</button>

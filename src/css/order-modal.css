@@ -104,6 +104,11 @@
   opacity: 0;
 }
 
+input:not(:focus):invalid:not(:placeholder-shown),
+textarea:not(:focus):invalid:not(:placeholder-shown) {
+  border-color: red;
+}
+
 .modal-close-icon {
   fill: #080c0c;
   stroke-width: 1px;
