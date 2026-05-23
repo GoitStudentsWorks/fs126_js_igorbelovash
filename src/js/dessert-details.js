@@ -59,7 +59,7 @@ function openModal() {
     overlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
 
-    modalCloseBtn.add('click', closeModal);
+    modalCloseBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', handleBackdropClick);
     window.addEventListener('keydown', handleEscapeKey);
 }

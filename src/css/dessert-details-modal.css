@@ -114,7 +114,7 @@
 }
 
 .modal-description {
-font-weight: 400;
+    font-weight: 400;
     font-size: 14px;
     line-height: 1.5;
     color: #202424;
@@ -127,7 +127,7 @@ font-weight: 400;
 }
 
 .modal-ingredients {
-font-weight: 400;
+    font-weight: 400;
     font-size: 14px;
     line-height: 1.5;
     color: #202424;
@@ -171,7 +171,7 @@ font-weight: 400;
     }
 
     .modal-sub-btn {
-        justify-content: left;
+        justify-content: flex-start;
     }
     .to-order-btn {
         width: 310px;
