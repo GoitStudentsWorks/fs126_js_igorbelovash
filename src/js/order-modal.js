@@ -6,6 +6,8 @@ const form = document.querySelector('.modal-form');
 
 form.addEventListener('submit', handleSubmit);
 
+let dessertsId = null;
+
 async function handleSubmit(event) {
   event.preventDefault();
 
@@ -14,7 +16,7 @@ async function handleSubmit(event) {
   const formData = {
     name: username.value.trim(),
     phone: phone.value.trim(),
-    dessertId: '6852a9fcb459460cb6b47748',
+    dessertId: dessertsId,
     comment: textComment.value.trim(),
   };
 
