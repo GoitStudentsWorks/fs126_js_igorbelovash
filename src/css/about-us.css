@@ -27,12 +27,12 @@
   overflow: visible;
 }
 
-.swiper-slide:not(:last-child) {
-  margin-bottom: 24px;
+.contact-us-gallery-list {
+  flex-direction: column;
 }
 
-.contact-us-gallery-list.swiper-wrapper .slide-hidden {
-  opacity: 0;
+.swiper-slide:not(:last-child) {
+  margin-bottom: 24px;
 }
 
 .about-us-slide-btn,
@@ -52,6 +52,18 @@
   .about-us-section {
     padding-top: 80px;
     padding-bottom: 80px;
+  }
+
+  .contact-us-gallery-list {
+    flex-direction: row;
+  }
+
+  .swiper-slide {
+    opacity: 0;
+  }
+
+  .swiper-slide-visible {
+    opacity: 1;
   }
 
   .swiper-slide:not(:last-child) {
