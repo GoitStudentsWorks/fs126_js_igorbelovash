@@ -1,37 +1,40 @@
 <section class="dessert-list" id="desserts">
     <div class="container">
+
         <h2 class="section-title">Солодощі</h2>
-            <p class="section-subtitle">
-                Спробуйте наші смачні десерти, які вас здивують!
-            </p>
+        <p class="section-subtitle">Спробуйте наші смачні десерти, які вас здивують!</p>
+
         <div class="dessert-list__filters">
+
+            <!-- Desktop: category buttons (hidden on mobile/tablet via CSS) -->
             <ul class="dessert-list__categories js-categories" aria-label="Filter by category"></ul>
-            <!-- <div class="dessert-list__select-wrap">
-                <select class="dessert-list__select js-category-select" aria-label="Filter by category">
-                    <option value="">Всі десерти</option>
-                </select>
-            </div> -->
-                <div class="dessert-list__select-wrap">
-                    <div class="custom-select js-custom-select">
-                        <button class="custom-select__trigger" type="button">
-                            <span class="custom-select__label">Всі десерти</span>
-                            <svg width="20" height="20">
-                                <use href="/img/sprite.svg#icon-keyboard_arrow_down"></use>
-                            </svg>
-                        </button>
-                
-                        <ul class="custom-select__dropdown"></ul>
-                    </div>
+
+            <!-- Mobile / Tablet: custom dropdown (hidden on desktop via CSS) -->
+            <div class="dessert-list__select-wrap">
+                <div class="custom-select js-custom-select">
+                    <button class="custom-select__trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="custom-select__label">Всі десерти</span>
+                        <svg width="20" height="20" aria-hidden="true">
+                            <use href="/img/sprite.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                    </button>
+                    <ul class="custom-select__dropdown" role="listbox"></ul>
                 </div>
+            </div>
+
         </div>
+
         <ul class="dessert-list__grid js-dessert-grid" aria-label="Desserts catalog"></ul>
+
         <div class="dessert-list__loader js-dessert-loader">
             <span class="loader"></span>
         </div>
+
         <div class="dessert-list__load-more-wrap">
             <button type="button" class="btn btn--outline dessert-list__load-more js-load-more" hidden>
                 Завантажити ще
             </button>
         </div>
+
     </div>
 </section>

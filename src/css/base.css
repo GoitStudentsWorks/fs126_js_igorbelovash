@@ -10,3 +10,23 @@ body {
   color: var(--main-color);
   background-color: var(--bg-color);
 }
+
+.section-title {
+  font-family: "Comfortaa", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 24px;
+  display: flex;
+  justify-content: center;
+  color: #080c0c;
+}
+
+.section-subtitle {
+  font-family: "Work Sans", sans-serif;
+  font-size: 18px;
+  text-align: center;
+  color: #080c0c;
+  margin-bottom: 40px;
+}

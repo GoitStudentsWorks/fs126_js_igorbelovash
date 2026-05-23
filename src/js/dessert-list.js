@@ -192,15 +192,17 @@ function renderDessertCard(d) {
   return `
     <li class="dessert-card" data-id="${d._id}">
       <div class="dessert-card__img-wrap">
-        <img src="${d.image}" alt="${d.name}" loading="lazy">
+        <img class="dessert-card__img" src="${d.image}" alt="${d.name}" loading="lazy">
       </div>
       <div class="dessert-card__body">
-        <p>${d.category?.name || 'No category'}</p>
-        <h3>${d.name}</h3>
-        <div>${d.description}</div>
+        <p class="dessert-card__category">${d.category?.name || 'No category'}</p>
+        <h3 class="dessert-card__name">${d.name}</h3>
+        <div class="dessert-card__description">
+          <span>${d.description}</span>
+        </div>
         <div class="dessert-card__footer">
-          <span>${Number(d.price).toFixed(0)} грн</span>
-          <button type="button" class="dessert-card__btn">
+          <span class="dessert-card__price">${Number(d.price).toFixed(0)} грн</span>
+          <button type="button" class="dessert-card__btn" aria-label="Відкрити">
             <svg width="20" height="20">
               <use href="/img/sprite.svg#icon-arrow_outward"></use>
             </svg>
@@ -249,7 +251,7 @@ const ui = {
     els.loader?.setAttribute('hidden', '');
   },
   toggleLoadMore(shown) {
-    els.loadMore.hidden = shown >= state.total;
+    if (els.loadMore) els.loadMore.hidden = shown >= state.total;
   },
 };
 
@@ -261,7 +263,7 @@ async function loadDesserts(reset = false) {
     }
 
     ui.showLoader();
-    els.loadMore.hidden = true;
+    if (els.loadMore) els.loadMore.hidden = true;
 
     const data = await getDesserts({
       page: state.page,
@@ -312,7 +314,7 @@ dropdown?.addEventListener('click', e => {
   state.category = opt.dataset.cat || '';
   state.page = 1;
 
-  if (label) label.textContent = opt.textContent;
+  if (label) label.textContent = opt.textContent.trim();
 
   loadDesserts(true);
   els.customSelect?.classList.remove('open');
