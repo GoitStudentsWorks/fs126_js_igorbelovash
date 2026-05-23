@@ -1,5 +1,5 @@
 /* mobile */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 
   .container {
     display: flex;
@@ -45,6 +45,16 @@
     background: transparent;
     border: none;
     cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .menu-btn:hover,
+  .menu-btn:focus {
+    opacity: 0.6;
+  }
+
+  .menu-btn:active {
+    opacity: 0.3;
   }
 
   .icon-path {
@@ -60,12 +70,14 @@
   }
 
   /* nav-bar */
+
+
   .mobile-menu {
     position: fixed;
-    top: 72px;
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh - 72px);
+    height: 100vh;
     background: #f5fdfd;
     transform: translateY(-100%);
     opacity: 0;
@@ -115,6 +127,16 @@
     background: transparent;
     border: none;
     cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .close-btn:hover,
+  .close-btn:focus {
+    opacity: 0.6;
+  }
+
+  .close-btn:active {
+    opacity: 0.3;
   }
 
   .mobile-nav {
