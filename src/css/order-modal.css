@@ -1,0 +1,155 @@
+.modal-container {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  position: relative;
+
+  width: 335px;
+  padding: 64px 20px;
+
+  background-color: #f7ffff;
+  border-radius: 12px;
+}
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.modal-close svg {
+  pointer-events: none;
+}
+
+.modal-title {
+  max-width: 295px;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #080c0c;
+  margin-bottom: 48px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.modal-label {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #080c0c;
+}
+
+.modal-input,
+.modal-textarea {
+  width: 100%;
+  height: 40px;
+
+  padding: 8px 12px;
+
+  border: 2px solid #080c0c;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0);
+}
+
+.modal-textarea {
+  height: 180px;
+  resize: none;
+}
+
+.modal-submit {
+  font-family: 'Work Sans', sans-serif;
+  border: 1px solid #f19898;
+  border-radius: 100px;
+  padding: 10px 24px;
+  width: 295px;
+  height: 44px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+
+  background-color: #f58f8f;
+  color: #111;
+
+  cursor: pointer;
+}
+
+.modal-input:focus,
+.modal-textarea:focus {
+  border-color: #f19898;
+  outline: none;
+}
+
+.modal-input:focus::placeholder,
+.modal-textarea:focus::placeholder {
+  opacity: 0;
+}
+
+.modal-close-icon {
+  fill: #080c0c;
+  stroke-width: 1px;
+  stroke: #080c0c;
+}
+
+.modal-submit:hover,
+.modal-submit:focus {
+  border: 2px solid #080c0c;
+}
+
+.modal-submit:active {
+  background-color: #c07979;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-box {
+    padding: 64px 32px;
+    width: 704px;
+  }
+
+  .modal-submit {
+    width: 344px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .modal-title {
+    max-width: 640px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .modal-box {
+    padding: 64px;
+    width: 768px;
+  }
+
+  .modal-title {
+    font-size: 48px;
+  }
+
+  .modal-submit {
+    width: 196px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
