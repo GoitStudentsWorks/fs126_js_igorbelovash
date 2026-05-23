@@ -1,19 +1,13 @@
 /*------modal------*/
-
 .overlay-details {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background-color: rgba(0, 0, 0, 0.25);
     z-index: 999;
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
-    transition:
-        opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .overlay-details.is-open {
@@ -25,17 +19,18 @@
 .modal {
     border-radius: 16px;
     width: 335px;
-    height: 711px;
-    overflow: hidden;
+    max-height: 90vh;
+    height: auto;
+    overflow-y: auto;
     background-color: #fcfcfc;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.overlay:not(.is-open) .modal {
+.overlay-details:not(.is-open) .modal {
     transform: translate(-50%, -100%) scale(0.9);
 }
 
@@ -46,6 +41,7 @@
     background-color: transparent;
     padding: 0;
     border: none;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,7 +51,7 @@
 .modal-icon-close {
     fill: #080C0C;
     stroke: #080C0C;
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close:hover,
@@ -68,22 +64,21 @@
 .modal-close:focus-visible .modal-icon-close {
     transform: scale(1.1);
     outline: none;
-
 }
 
 .modal-info {
     padding: 64px 20px;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .modal-img-thumb {
     width: 100%;
-    height: 220px;
+    height: 221.25px;
     border-radius: 16px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .modal-img {
@@ -97,7 +92,7 @@
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 8px;
-    color: #2e2f42;
+    color: #080C0C;
 }
 
 .modal-price {
@@ -108,7 +103,7 @@
 
 .modal-rating {
     color: #080C0C;
-    width: 95px;
+    width: 96px;
     height: 15px;
     margin-bottom: 24px;
 }
@@ -117,7 +112,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 1.5;
-    color: #202424;
+    color: #080C0C;
     margin-bottom: 24px;
 }
 
@@ -130,15 +125,14 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 1.5;
-    color: #202424;
+    color: #080C0C;
     margin-bottom: 24px;
 }
 
 .modal-sub-btn {
-    display: flex; 
+    display: flex;
     justify-content: center;
     margin-top: auto;
-  
 }
 
 .to-order-btn {
@@ -148,6 +142,7 @@
     padding: 10px 24px;
     width: 295px;
     height: 44px;
+    cursor: pointer;
 }
 
 .to-order-btn:active {
@@ -156,8 +151,8 @@
 
 @media screen and (min-width: 768px) {
     .modal {
-       width: 704px;
-       height: 959px;
+        width: 704px;
+        height: 959px;
     }
 
     .modal-info {
@@ -173,6 +168,7 @@
     .modal-sub-btn {
         justify-content: flex-start;
     }
+
     .to-order-btn {
         width: 310px;
     }
@@ -203,15 +199,14 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-
     }
 
-    .modal-content-wrapper {    
+    .modal-content-wrapper {
         flex-grow: 1;
         text-align: left;
     }
 
     .modal-title {
-       font-size: 40px;
+        font-size: 40px;
     }
 }
