@@ -173,7 +173,7 @@ position: absolute;
 
 
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     .feedback-section {
         max-width: 768px;
         padding: 64px 32px;
@@ -255,7 +255,7 @@ position: absolute;
 
  
 
-@media (min-width: 1440px) {
+@media only screen and (min-width: 1440px) {
     .feedback-section {
         max-width: 1440px;
         padding: 80px 64px;
