@@ -4,6 +4,11 @@
   --bg-color: #F5FDFD;
 }
 
+/* Added smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: var(--main-font);
