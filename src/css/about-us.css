@@ -76,13 +76,23 @@
     align-items: center;
     height: 48px;
     width: 48px;
-    border: solid 1px #080c0c;
+    border: solid 2px #080c0c;
     padding: 0;
     position: absolute;
     z-index: 1;
     top: 50%;
     transform: translateY(-50%);
     border-radius: 50%;
+    transition: background-color 250ms ease;
+  }
+
+  .about-us-slide-btn:hover,
+  .about-us-slide-btn:focus {
+    background-color: #F19898;
+  }
+
+  .about-us-slide-btn:active {
+    background-color: #C07979;
   }
 
   .about-us-pagination {
