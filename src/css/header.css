@@ -124,11 +124,23 @@
     align-items: center;
     justify-content: center;
     gap: 4px;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
     color: #080c0c;
     white-space: nowrap;
+  }
+
+  .nav-link:active {
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #f19898;
+  }
+
+  .nav-link:disabled {
+    opacity: 0.3;
+    color: #080c0c;
+    cursor: not-allowed;
   }
 
   .header-btn {
