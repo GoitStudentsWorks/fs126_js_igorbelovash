@@ -84,6 +84,7 @@
     transform: translateY(-50%);
     border-radius: 50%;
     transition: background-color 250ms ease;
+    stroke: #080c0c;
   }
 
   .about-us-slide-btn:hover,
