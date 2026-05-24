@@ -1,12 +1,12 @@
 <div class="modal-container">
   <div class="modal-box">
-    <button class="modal-close" type="button">
-      <svg width="24" height="24">
-        <use class="modal-close-icon" href="../img/sprite.svg#icon-close"></use>
+    <button class="modal-close" type="button" aria-label="Close modal">
+      <svg class="modal-close-icon" width="24" height="24">
+        <use href="/img/sprite.svg#icon-close"></use>
       </svg>
     </button>
     <h2 class="modal-title">Оформлення замовлення</h2>
-    <form class="modal-form" action="">
+    <form class="modal-form">
       <label class="modal-label" for="name">
         Ім'я*
 
@@ -18,6 +18,7 @@
           placeholder="Вікторія"
           minlength="2"
           pattern="[А-Яа-яІіЇїЄєҐґ\s]+"
+          required
       /></label>
 
       <label class="modal-label" for="phone">
@@ -29,11 +30,12 @@
           name="phone"
           type="tel"
           placeholder="38 0_ ___"
-          pattern="38[0-9]{10}"
+          pattern="+?3?8?0[0-9\s-]{9,12}"
+          required
         />
       </label>
       <label class="modal-label" for="comment">
-        Коментар
+        Коментар*
 
         <textarea
           class="modal-textarea"
@@ -41,6 +43,8 @@
           name="textComment"
           placeholder="Ваш коментар"
           minlength="10"
+          maxlength="250"
+          required
         ></textarea>
       </label>
       <button class="modal-submit" type="submit">Надіслати заявку</button>

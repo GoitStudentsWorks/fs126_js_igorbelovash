@@ -24,7 +24,6 @@
 
   border: none;
   background: transparent;
-  cursor: pointer;
 }
 
 .modal-close svg {
@@ -40,7 +39,6 @@
   line-height: 1.2;
   letter-spacing: -0.01em;
   text-align: center;
-  color: #080c0c;
   margin-bottom: 48px;
 }
 
@@ -51,11 +49,9 @@
 }
 
 .modal-label {
-  font-family: 'Work Sans', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
-  color: #080c0c;
 }
 
 .modal-input,
@@ -68,7 +64,7 @@
   border: 2px solid #080c0c;
   border-radius: 12px;
 
-  background: rgba(255, 255, 255, 0);
+  background: transparent;
 }
 
 .modal-textarea {
@@ -77,7 +73,6 @@
 }
 
 .modal-submit {
-  font-family: 'Work Sans', sans-serif;
   border: 1px solid #f19898;
   border-radius: 100px;
   padding: 10px 24px;
@@ -89,8 +84,6 @@
 
   background-color: #f58f8f;
   color: #111;
-
-  cursor: pointer;
 }
 
 .modal-input:focus,
@@ -154,8 +147,5 @@ textarea:not(:focus):invalid:not(:placeholder-shown) {
 
   .modal-submit {
     width: 196px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
   }
 }
