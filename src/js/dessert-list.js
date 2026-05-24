@@ -6,6 +6,7 @@ let state = {
   page: 1,
   category: '',
   total: 0,
+  loading: false,
 };
 
 const PAGE_LIMIT = 8;
@@ -22,20 +23,25 @@ const trigger = els.customSelect?.querySelector('.custom-select__trigger');
 const dropdown = els.customSelect?.querySelector('.custom-select__dropdown');
 const label = els.customSelect?.querySelector('.custom-select__label');
 
-function renderDessertCard(d) {
+function setDropdownOpen(open) {
+  els.customSelect?.classList.toggle('open', open);
+  trigger?.setAttribute('aria-expanded', String(open));
+}
+
+function renderDessertCard(dessert) {
   return `
-    <li class="dessert-card" data-id="${d._id}">
+    <li class="dessert-card" data-id="${dessert._id}">
       <div class="dessert-card__img-wrap">
-        <img class="dessert-card__img" src="${d.image}" alt="${d.name}" loading="lazy">
+        <img class="dessert-card__img" src="${dessert.image}" alt="${dessert.name}" loading="lazy">
       </div>
       <div class="dessert-card__body">
-        <p class="dessert-card__category">${d.category?.name || 'No category'}</p>
-        <h3 class="dessert-card__name">${d.name}</h3>
+        <p class="dessert-card__category">${dessert.category?.name || 'No category'}</p>
+        <h3 class="dessert-card__name">${dessert.name}</h3>
         <div class="dessert-card__description">
-          <span>${d.description}</span>
+          <span>${dessert.description}</span>
         </div>
         <div class="dessert-card__footer">
-          <span class="dessert-card__price">${Number(d.price).toFixed(0)} грн</span>
+          <span class="dessert-card__price">${Number(dessert.price).toFixed(0)} грн</span>
           <button type="button" class="dessert-card__btn" aria-label="Відкрити">
             <svg width="20" height="20">
               <use href="/img/sprite.svg#icon-arrow_outward"></use>
@@ -51,7 +57,7 @@ function renderCustomOptions(cats) {
   if (!dropdown) return;
 
   dropdown.innerHTML = [
-    `<li class="custom-select__option" data-cat="">Всі десерти</li>`,
+    `<li class="custom-select__option is-active" data-cat="">Всі десерти</li>`,
     ...cats.map(c =>
       `<li class="custom-select__option" data-cat="${c._id}">${c.name}</li>`
     )
@@ -84,13 +90,19 @@ const ui = {
   hideLoader() {
     els.loader?.setAttribute('hidden', '');
   },
-  toggleLoadMore(shown) {
-    if (els.loadMore) els.loadMore.hidden = shown >= state.total;
+  toggleLoadMore() {
+    if (els.loadMore) {
+      els.loadMore.hidden = state.page * PAGE_LIMIT >= state.total;
+    }
   },
 };
 
 async function loadDesserts(reset = false) {
+  if (state.loading) return;
+
   try {
+    state.loading = true;
+
     if (reset) {
       state.page = 1;
       els.grid.innerHTML = '';
@@ -113,13 +125,14 @@ async function loadDesserts(reset = false) {
       items.map(renderDessertCard).join('')
     );
 
-    ui.toggleLoadMore(els.grid.children.length);
+    ui.toggleLoadMore();
   } catch {
     iziToast.error({
       title: 'Error',
       message: 'Failed to load desserts',
     });
   } finally {
+    state.loading = false;
     ui.hideLoader();
   }
 }
@@ -138,7 +151,8 @@ async function loadCategories() {
 }
 
 trigger?.addEventListener('click', () => {
-  els.customSelect?.classList.toggle('open');
+  const isOpen = els.customSelect?.classList.contains('open');
+  setDropdownOpen(!isOpen);
 });
 
 dropdown?.addEventListener('click', e => {
@@ -150,13 +164,16 @@ dropdown?.addEventListener('click', e => {
 
   if (label) label.textContent = opt.textContent.trim();
 
+  dropdown.querySelectorAll('.custom-select__option').forEach(o => o.classList.remove('is-active'));
+  opt.classList.add('is-active');
+
   loadDesserts(true);
-  els.customSelect?.classList.remove('open');
+  setDropdownOpen(false);
 });
 
 document.addEventListener('click', e => {
   if (!els.customSelect?.contains(e.target)) {
-    els.customSelect?.classList.remove('open');
+    setDropdownOpen(false);
   }
 });
 
@@ -174,6 +191,7 @@ els.categories?.addEventListener('click', e => {
 });
 
 els.loadMore?.addEventListener('click', () => {
+  if (state.loading || state.page * PAGE_LIMIT >= state.total) return;
   state.page += 1;
   loadDesserts();
 });

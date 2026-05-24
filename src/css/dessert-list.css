@@ -3,10 +3,9 @@
 }
 
 .dessert-list .section-title {
-    justify-content: center;
     font-family: "Comfortaa", sans-serif;
-    font-weight: 700;
     font-size: 36px;
+    font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.01em;
     text-align: center;
@@ -16,8 +15,8 @@
 
 .dessert-list .section-subtitle {
     font-family: "Work Sans", sans-serif;
-    font-weight: 400;
     font-size: 18px;
+    font-weight: 400;
     line-height: 1.5;
     text-align: center;
     color: #080c0c;
@@ -59,11 +58,7 @@
 }
 
 .dessert-list__select-wrap {
-    display: block;
     width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    position: relative;
 }
 
 .custom-select {
@@ -73,6 +68,7 @@
 
 .custom-select__trigger {
     font-family: "Work Sans", sans-serif;
+    font-size: 16px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -82,7 +78,12 @@
     border: 2px solid #202424;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 16px;
+}
+
+.custom-select__trigger:focus,
+.custom-select__trigger:focus-visible {
+    outline: none;
+    border-color: #f19898;
 }
 
 .custom-select__trigger svg {
@@ -140,7 +141,12 @@
 }
 
 .custom-select__option:hover {
-    background-color: #EBFCFB;
+    background-color: #fbd5d5;
+}
+
+.custom-select__option.is-active {
+    background-color: #f19898;
+    font-weight: 500;
 }
 
 .dessert-list__grid {
@@ -184,12 +190,12 @@
 }
 
 .dessert-card__category {
-    font-size: 14px;
     font-family: "Work Sans", sans-serif;
+    font-size: 14px;
     font-weight: 400;
+    line-height: 1.5;
     color: #080c0c;
     margin: 0 0 12px;
-    line-height: 1.5;
 }
 
 .dessert-card__name {
@@ -250,10 +256,6 @@
     background-color: #c07979;
 }
 
-.dessert-card__btn:hover svg {
-    fill: #080c0c;
-}
-
 @media (hover: hover) {
     .dessert-card:hover {
         transform: translateY(-4px);
@@ -308,18 +310,17 @@
     align-items: center;
     justify-content: center;
     font-family: "Work Sans", sans-serif;
-    font-weight: 500;
     font-size: 16px;
+    font-weight: 500;
     border-radius: 100px;
-    cursor: pointer;
     border: none;
+    cursor: pointer;
 }
 
 .btn--outline {
-    background-color: #f19898;
     padding: 10px 32px;
+    background-color: #f19898;
     white-space: nowrap;
-    border: none;
     transition: background-color 0.2s, border 0.2s;
 }
 
@@ -329,7 +330,6 @@
 }
 
 @media (min-width: 768px) {
-    /* Grid: ліва колонка — заголовок+підзаголовок, права — дропдаун */
     .dessert-list .container {
         display: grid;
         grid-template-columns: 1fr 344px;
@@ -339,7 +339,7 @@
     .dessert-list .section-title {
         grid-column: 1;
         grid-row: 1;
-        justify-content: flex-start;
+        text-align: left;
         margin-bottom: 8px;
     }
 
@@ -356,12 +356,6 @@
         display: flex;
         align-items: flex-end;
         margin-bottom: 0;
-    }
-
-    .dessert-list__select-wrap {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
     }
 
     .dessert-list__grid {
@@ -398,8 +392,7 @@
     }
 
     .dessert-list .section-title {
-        justify-content: center;
-        font-size: 36px;
+        text-align: center;
         margin-bottom: 24px;
     }
 
@@ -426,5 +419,9 @@
         gap: 40px 24px;
         margin-top: 0;
         margin-bottom: 0;
+    }
+
+    .btn--outline {
+        padding: 10px 30px;
     }
 }
