@@ -24,7 +24,6 @@ function swiperCreate() {
           768: {
             slidesPerView: 2,
             spaceBetween: 24,
-            loop: true,
             pagination: {
               el: '.about-us-pagination',
               clickable: true,

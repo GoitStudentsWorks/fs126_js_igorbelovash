@@ -49,10 +49,6 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .about-us-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
 
   .contact-us-gallery-list {
     flex-direction: row;
@@ -87,8 +83,12 @@
     stroke: #080c0c;
   }
 
-  .about-us-slide-btn:hover,
-  .about-us-slide-btn:focus {
+  .swiper-button-disabled {
+    opacity: 0.2;
+  }
+
+  .about-us-slide-btn:not(.swiper-button-disabled):hover,
+  .about-us-slide-btn:not(.swiper-button-disabled):focus {
     background-color: #F19898;
   }
 
@@ -108,3 +108,15 @@
     background-color: #080c0c;
   }
 }
+
+@media only screen and (min-width: 1440px) {
+  .about-us-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .section-title {
+    font-size: 48px;
+  }
+}
+
