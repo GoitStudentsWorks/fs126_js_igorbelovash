@@ -136,15 +136,6 @@
     margin-top: auto;
 }
 
-.modal-sub-btn:hover,
-.modal-sub-btn:focus {
-    background-color: #ffffff;
-    outline: 2px solid #080c0c;
-    transform: scale(1.03);
-    
-    cursor: pointer;
-}
-
 .to-order-btn {
     border: none;
     background-color: #f19898;
@@ -152,6 +143,15 @@
     padding: 10px 24px;
     width: 295px;
     height: 44px;
+    cursor: pointer;
+}
+
+.to-order-btn:hover,
+.to-order-btn:focus {
+    background-color: #ffffff;
+    border: 2px solid #080c0c;
+    transform: scale(1.03);
+    
     cursor: pointer;
 }
 
