@@ -1,9 +1,3 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-} /* to be deleted if confirmed that included in reset.css */
-
 /* Mobile */
 .hero {
   width: 100%;
