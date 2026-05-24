@@ -21,8 +21,8 @@
     width: 335px;
     max-height: 90vh;
     height: auto;
-    overflow-y: auto;
-    background-color: #fcfcfc;
+    overflow: hidden;
+    background-color: #f5fdfd;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -68,7 +68,8 @@
 
 .modal-info {
     padding: 64px 20px;
-    min-height: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
 }
