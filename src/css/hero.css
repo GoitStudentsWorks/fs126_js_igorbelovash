@@ -1,8 +1,14 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+} /* to be deleted if confirmed that included in reset.css */
+
 /* Mobile */
 .hero {
-  padding-top: 155.5px;
-  padding-bottom: 155.5px;
   width: 100%;
+  padding-top: 155px;
+  padding-bottom: 155px;
 
   background-repeat: no-repeat;
   background-position: center;
@@ -10,7 +16,7 @@
 
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('../img/hero-mobile_1x.jpg');
+    url('/img/hero-mobile_1x.jpg');
 }
 
 /* Retina mobile */
@@ -19,7 +25,7 @@
   .hero {
     background-image:
       linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('../img/hero-mobile_2x.jpg');
+      url('/img/hero-mobile_2x.jpg');
   }
 }
 
@@ -27,54 +33,44 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-
-  padding-left: 20px;
-  padding-right: 20px;
-
   text-align: center;
 }
 
 .hero-content {
   max-width: 335px;
-  width: 100%;
-  position: relative;
-  z-index: 1;
 }
 
 .hero-title {
+  margin-bottom: 24px;
+
   font-family: 'Comfortaa', sans-serif;
   font-weight: 700;
   font-size: 40px;
   line-height: 1.2;
-  width: 100%;
-  margin-bottom: 24px;
 
   color: #ffffff;
 }
 
 .hero-text {
   font-family: 'Work Sans', sans-serif;
-  font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
-  width: 100%;
+
   margin-bottom: 32px;
 
   color: #ffffff;
 }
 
 .hero-btn {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 500;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: 100%;
-  max-width: 335px;
-  height: 44px;
   padding: 10px 24px;
 
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
 
@@ -97,8 +93,6 @@
   background-color: #ffffff;
   outline: 2px solid #080c0c;
   transform: scale(1.03);
-
-  cursor: pointer;
 }
 
 .hero-btn:active {
@@ -115,45 +109,26 @@
 
     background-image:
       linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('../img/hero-tablet_1x.jpg');
-  }
-
-  /* Retina tablet */
-  @media screen and (min-width: 768px) and (min-resolution: 2dppx),
-    screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
-    .hero {
-      background-image:
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url('../img/hero-tablet_2x.jpg');
-    }
-  }
-
-  .hero-container {
-    padding-left: 32px;
-    padding-right: 32px;
+      url('/img/hero-tablet_1x.jpg');
   }
 
   .hero-content {
     max-width: 704px;
   }
 
-  .hero-title {
-    width: 100%;
-    font-size: 40px;
-    line-height: 1.2;
-  }
-
-  .hero-text {
-    width: 100%;
-    font-size: 18px;
-    line-height: 1.5;
-  }
-
   .hero-btn {
     width: 219px;
-    height: 44px;
-    padding: 10px 24px;
     margin: 0 auto;
+  }
+}
+
+/* Retina tablet */
+@media screen and (min-width: 768px) and (min-resolution: 2dppx),
+  screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+  .hero {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('/img/hero-tablet_2x.jpg');
   }
 }
 
@@ -161,62 +136,28 @@
 @media screen and (min-width: 1440px) {
   .hero {
     min-height: 900px;
-    background-image:
-      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('../img/hero-desktop_1x.jpg');
-
     padding-top: 306px;
     padding-bottom: 306px;
-  }
-
-  /* Retina desktop */
-  @media screen and (min-width: 1440px) and (min-resolution: 2dppx),
-    screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2) {
-    .hero {
-      background-image:
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url('../img/hero-desktop_2x.jpg');
-    }
-  }
-
-  .hero-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    padding-left: 65.5px;
-    padding-right: 63.5px;
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('/img/hero-desktop_1x.jpg');
   }
 
   .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
     max-width: 768px;
-    width: 100%;
   }
 
   .hero-title {
     font-size: 56px;
-    line-height: 1.2;
-    margin-bottom: 24px;
   }
+}
 
-  .hero-text {
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 32px;
-  }
-
-  .hero-btn {
-    font-size: 16px;
-    line-height: 1.5;
-    width: 219px;
-    height: 44px;
-    padding: 10px 24px;
-    margin: 0 auto;
+/* Retina desktop */
+@media screen and (min-width: 1440px) and (min-resolution: 2dppx),
+  screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2) {
+  .hero {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('/img/hero-desktop_2x.jpg');
   }
 }
