@@ -1,8 +1,13 @@
-function createMarkup(arr) {
+export function createMarkup(arr, options = {}) {
+  if (!Array.isArray(arr)) return '';
+
+  const { slide = false } = options;
+  const cardClass = slide ? 'product-card swiper-slide' : 'product-card';
+
   return arr
     .map(
       ({ image, category: { name: categoryName }, name, description, price }) =>
-        `<li class="product-card swiper-slide">
+        `<li class="${cardClass}">
           <div class="product-img-thumb">
             <img class="product-img" src="${image}" alt="${name}"/>
           </div>
