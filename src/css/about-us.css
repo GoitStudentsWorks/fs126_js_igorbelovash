@@ -85,6 +85,7 @@
 
   .swiper-button-disabled {
     opacity: 0.2;
+    cursor: auto;
   }
 
   .about-us-slide-btn:not(.swiper-button-disabled):hover,
@@ -92,7 +93,7 @@
     background-color: #F19898;
   }
 
-  .about-us-slide-btn:active {
+  .about-us-slide-btn:not(.swiper-button-disabled):active {
     background-color: #C07979;
   }
 
