@@ -1,8 +1,10 @@
 import axios from 'axios';
+import iziToast from 'izitoast';
 import Swiper from 'swiper';
 import { Pagination, Navigation } from 'swiper/modules';
 
 import { createMarkup } from './utils/createMarkupForProductCard';
+import 'izitoast/dist/css/iziToast.min.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -10,6 +12,22 @@ const BASE_URL = 'https://deserts-store.b.goit.study/api/';
 const END_POINT = 'desserts';
 
 const productsContainer = document.querySelector('.popular-products-list');
+
+function showWarning(message) {
+  iziToast.warning({
+    title: 'Увага',
+    message,
+    position: 'topRight',
+  });
+}
+
+function showError(message) {
+  iziToast.error({
+    title: 'Помилка',
+    message,
+    position: 'topRight',
+  });
+}
 
 async function getPopularProducts() {
   if (!productsContainer) {
@@ -26,7 +44,7 @@ async function getPopularProducts() {
       throw new Error('Невірний формат даних з API');
     }
     if (data.desserts.length < 3) {
-      console.warn('Мало популярних товарів для відображення');
+      showWarning('Мало популярних товарів для відображення');
       return;
     }
 
@@ -36,14 +54,14 @@ async function getPopularProducts() {
     );
 
     if (validDesserts.length < 3) {
-      console.warn('Неможливо відобразити популярні товари через неповні дані');
+      showWarning('Неможливо відобразити популярні товари через неповні дані');
       return;
     }
 
     productsContainer.innerHTML = createMarkup(validDesserts, { slide: true });
     initPopularProductsSwiper();
   } catch (error) {
-    console.error('Помилка завантаження популярних товарів:', error);
+    showError(error.message || 'Помилка завантаження популярних товарів');
   }
 }
 
