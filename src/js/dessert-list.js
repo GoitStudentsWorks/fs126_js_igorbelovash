@@ -69,13 +69,13 @@ function renderCategoryButtons(cats) {
 
   els.categories.innerHTML = [
     `<li>
-      <button class="dessert-list__cat-btn is-active" data-cat="">
+      <button type="button" class="dessert-list__cat-btn is-active" data-cat="">
         Всі десерти
       </button>
     </li>`,
     ...cats.map(c => `
       <li>
-        <button class="dessert-list__cat-btn" data-cat="${c._id}">
+        <button  type="button" class="dessert-list__cat-btn" data-cat="${c._id}">
           ${c.name}
         </button>
       </li>
