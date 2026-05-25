@@ -3,12 +3,12 @@ import axios from 'axios';
 
 let currentDessertId = null;
 
-const dessertContainer = document.querySelector('.desserts-list');
+const dessertContainer = document.querySelector('.js-dessert-grid');
 const overlay = document.querySelector('.overlay-details');
-const modalCloseBtn = document.querySelector('.modal-close');
+const modalCloseBtn = document.querySelector('.modal-details-close');
 
 const modalImg = document.querySelector('.modal-img');
-const modalTitle = document.querySelector('.modal-title');
+const modalTitle = document.querySelector('.modal-details-title');
 const modalPrice = document.querySelector('.modal-price');
 const modalRating = document.querySelector('.modal-rating');
 const modalDescription = document.querySelector('.modal-description');
@@ -77,7 +77,7 @@ function closeModal() {
 }
 
 function handleBackdropClick(event) {
-    if (event.target === overlay) closeModal();
+    if (event.target === event.currentTarget) closeModal();
 }
 
 function handleEscapeKey(event) {
@@ -94,16 +94,17 @@ if (openOrderBtn) {
     openOrderBtn.addEventListener('click', () => {
       
 if (!currentDessertId) return;
+        closeModal(); 
         
-    document.dispatchEvent(orderEvent);
-    
     const orderEvent = new CustomEvent('open-order', {
       detail: { dessertId: currentDessertId }
     });
         
+    document.dispatchEvent(orderEvent);    
+        
     console.log(`Подія 'open-order' відправлена з ID: ${currentDessertId}`);
         
-    closeModal(); 
+    // closeModal(); 
   });
 }
 
