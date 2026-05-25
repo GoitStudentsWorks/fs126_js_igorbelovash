@@ -141,7 +141,6 @@ textarea:not(:focus):invalid:not(:placeholder-shown) {
   }
 
   .modal-title {
-    max-width: 640px;
     font-size: 47px;
   }
 
