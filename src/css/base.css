@@ -1,7 +1,9 @@
 :root {
-  --main-font: "Work Sans", "Comfortaa", sans-serif;
-  --main-color: #080C0C;
-  --bg-color: #F5FDFD;
+  --main-font: 'Work Sans', 'Comfortaa', sans-serif;
+  --main-color: #080c0c;
+  --bg-color: #f5fdfd;
+
+  scroll-behavior: smooth;
 }
 
 /* Added smooth scroll behavior */
