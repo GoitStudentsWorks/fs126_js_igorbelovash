@@ -1,4 +1,5 @@
 // desetrt-modal-details
+
 import axios from 'axios';
 
 let currentDessertId = null;
@@ -17,11 +18,11 @@ const modalIngredients = document.querySelector('.modal-ingredients');
 function generateStars(rating) {
   const numericRating = Number(rating) || 5;
   const totalStars = 5;
-  
+
   const fullStarsCount = Math.floor(numericRating);
   const hasHalfStar = (numericRating % 1) >= 0.25 && (numericRating % 1) < 0.75;
   const extraFullStar = (numericRating % 1) >= 0.75 ? 1 : 0;
-  
+
   const finalFullStars = fullStarsCount + extraFullStar;
   const emptyStarsCount = totalStars - finalFullStars - (hasHalfStar ? 1 : 0);
 
@@ -29,7 +30,7 @@ function generateStars(rating) {
 }
 
 async function handleDessertClick(event) {
-    const targetBtn = event.target.closest('.product-card-btn');
+   const targetBtn = event.target.closest('.product-card-btn');
     if (!targetBtn) return;
 
     const { id } = targetBtn.dataset;
@@ -51,7 +52,7 @@ async function handleDessertClick(event) {
     } catch (error) {
         console.error(`Failed to load dessert:`, error);
     }
-  
+
 }
 
 function openModal() {
@@ -59,14 +60,14 @@ function openModal() {
     document.body.style.overflow = 'hidden';
 
     modalCloseBtn.addEventListener('click', closeModal);
-    overlay.addEventListener('click', handleBackdropClick);
+    overlay.addEventListener('click', handleBackdropClick)
     window.addEventListener('keydown', handleEscapeKey);
 }
 
 function closeModal() {
     overlay.classList.remove('is-open');
-    document.body.style.overflow = ''; 
- 
+    document.body.style.overflow = '';
+
     modalCloseBtn.removeEventListener('click', closeModal);
     overlay.removeEventListener('click', handleBackdropClick);
     window.removeEventListener('keydown', handleEscapeKey);
@@ -92,30 +93,28 @@ const openOrderBtn = document.querySelector('.js-open-order-btn');
 
 if (openOrderBtn) {
     openOrderBtn.addEventListener('click', () => {
-      
-if (!currentDessertId) return;
-        closeModal(); 
+
+        if (!currentDessertId) return;
         
     const orderEvent = new CustomEvent('open-order', {
       detail: { dessertId: currentDessertId }
     });
-        
+
     document.dispatchEvent(orderEvent);    
+
+        console.log(`Подія 'open-order' відправлена з ID: ${currentDessertId}`);
         
-    console.log(`Подія 'open-order' відправлена з ID: ${currentDessertId}`);
-        
-    // closeModal(); 
+    closeModal();
   });
 }
 
 function clearModal() {
-    modalImg.src = '';
-    modalImg.alt = '';
-    modalTitle.textContent = '';
-    modalPrice.textContent = '';
-    modalDescription.textContent = '';
-    modalRating.textContent = '';
-    modalIngredients.innerHTML = '';
+    if (modalImg) { modalImg.removeAttribute('src'); modalImg.alt = ''; }
+    if (modalTitle) modalTitle.textContent = '';
+    if (modalPrice) modalPrice.textContent = '';
+    if (modalDescription) modalDescription.textContent = '';
+    if (modalRating) modalRating.textContent = '';
+    if (modalIngredients) modalIngredients.innerHTML = '';
 }
 
 
