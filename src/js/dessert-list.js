@@ -23,26 +23,47 @@ const trigger = els.customSelect?.querySelector('.custom-select__trigger');
 const dropdown = els.customSelect?.querySelector('.custom-select__dropdown');
 const label = els.customSelect?.querySelector('.custom-select__label');
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 function setDropdownOpen(open) {
   els.customSelect?.classList.toggle('open', open);
   trigger?.setAttribute('aria-expanded', String(open));
+}
+
+function syncCategoryUI(catId) {
+  els.categories?.querySelectorAll('.dessert-list__cat-btn').forEach(btn => {
+    btn.classList.toggle('is-active', (btn.dataset.cat || '') === catId);
+  });
+
+  dropdown?.querySelectorAll('.custom-select__option').forEach(opt => {
+    opt.classList.toggle('is-active', (opt.dataset.cat || '') === catId);
+  });
+
+  const activeOpt = dropdown?.querySelector(`.custom-select__option[data-cat="${catId}"]`);
+  if (label && activeOpt) label.textContent = activeOpt.textContent.trim();
 }
 
 function renderDessertCard(dessert) {
   return `
     <li class="dessert-card" data-id="${dessert._id}">
       <div class="dessert-card__img-wrap">
-        <img class="dessert-card__img" src="${dessert.image}" alt="${dessert.name}" loading="lazy">
+        <img class="dessert-card__img" src="${escapeHtml(dessert.image)}" alt="${escapeHtml(dessert.name)}" loading="lazy">
       </div>
       <div class="dessert-card__body">
-        <p class="dessert-card__category">${dessert.category?.name || 'No category'}</p>
-        <h3 class="dessert-card__name">${dessert.name}</h3>
+        <p class="dessert-card__category">${escapeHtml(dessert.category?.name || 'No category')}</p>
+        <h3 class="dessert-card__name">${escapeHtml(dessert.name)}</h3>
         <div class="dessert-card__description">
-          <span>${dessert.description}</span>
+          <span>${escapeHtml(dessert.description)}</span>
         </div>
         <div class="dessert-card__footer">
           <span class="dessert-card__price">${Number(dessert.price).toFixed(0)} грн</span>
-          <button type="button" class="dessert-card__btn" aria-label="Відкрити">
+          <button type="button" class="dessert-card__btn" aria-label="Відкрити ${escapeHtml(dessert.name)}">
             <svg width="20" height="20">
               <use href="/img/sprite.svg#icon-arrow_outward"></use>
             </svg>
@@ -59,7 +80,7 @@ function renderCustomOptions(cats) {
   dropdown.innerHTML = [
     `<li class="custom-select__option is-active" data-cat="">Всі десерти</li>`,
     ...cats.map(c =>
-      `<li class="custom-select__option" data-cat="${c._id}">${c.name}</li>`
+      `<li class="custom-select__option" data-cat="${c._id}">${escapeHtml(c.name)}</li>`
     )
   ].join('');
 }
@@ -69,14 +90,14 @@ function renderCategoryButtons(cats) {
 
   els.categories.innerHTML = [
     `<li>
-      <button type="button" class="dessert-list__cat-btn is-active" data-cat="">
+      <button class="dessert-list__cat-btn is-active" data-cat="">
         Всі десерти
       </button>
     </li>`,
     ...cats.map(c => `
       <li>
-        <button  type="button" class="dessert-list__cat-btn" data-cat="${c._id}">
-          ${c.name}
+        <button class="dessert-list__cat-btn" data-cat="${c._id}">
+          ${escapeHtml(c.name)}
         </button>
       </li>
     `)
@@ -105,7 +126,7 @@ async function loadDesserts(reset = false) {
 
     if (reset) {
       state.page = 1;
-      els.grid.innerHTML = '';
+      if (els.grid) els.grid.innerHTML = '';
     }
 
     ui.showLoader();
@@ -117,16 +138,17 @@ async function loadDesserts(reset = false) {
       category: state.category,
     });
 
-    state.total = data.totalItems;
-    const items = data.desserts ?? data;
+    state.total = data.totalItems ?? data.length ?? 0;
+    const items = Array.isArray(data.desserts) ? data.desserts : Array.isArray(data) ? data : [];
 
-    els.grid.insertAdjacentHTML(
+    els.grid?.insertAdjacentHTML(
       'beforeend',
       items.map(renderDessertCard).join('')
     );
 
     ui.toggleLoadMore();
-  } catch {
+  } catch (err) {
+    console.error('[loadDesserts]', err);
     iziToast.error({
       title: 'Error',
       message: 'Failed to load desserts',
@@ -142,7 +164,8 @@ async function loadCategories() {
     const cats = await getCategories();
     renderCustomOptions(cats);
     renderCategoryButtons(cats);
-  } catch {
+  } catch (err) {
+    console.error('[loadCategories]', err);
     iziToast.error({
       title: 'Error',
       message: 'Failed to load categories',
@@ -162,11 +185,7 @@ dropdown?.addEventListener('click', e => {
   state.category = opt.dataset.cat || '';
   state.page = 1;
 
-  if (label) label.textContent = opt.textContent.trim();
-
-  dropdown.querySelectorAll('.custom-select__option').forEach(o => o.classList.remove('is-active'));
-  opt.classList.add('is-active');
-
+  syncCategoryUI(state.category);
   loadDesserts(true);
   setDropdownOpen(false);
 });
@@ -184,14 +203,11 @@ els.categories?.addEventListener('click', e => {
   state.category = btn.dataset.cat || '';
   state.page = 1;
 
-  els.categories.querySelectorAll('button').forEach(b => b.classList.remove('is-active'));
-  btn.classList.add('is-active');
-
+  syncCategoryUI(state.category);
   loadDesserts(true);
 });
 
 els.loadMore?.addEventListener('click', () => {
-  if (state.loading || state.page * PAGE_LIMIT >= state.total) return;
   state.page += 1;
   loadDesserts();
 });
@@ -200,3 +216,6 @@ els.loadMore?.addEventListener('click', () => {
   await loadCategories();
   await loadDesserts(true);
 })();
+
+
+

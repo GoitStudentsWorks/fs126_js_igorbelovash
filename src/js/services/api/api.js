@@ -1,6 +1,9 @@
 import axios from 'axios';
+
+const BASE_URL = 'https://deserts-store.b.goit.study/api';
+
 const api = axios.create({
-  baseURL: 'https://deserts-store.b.goit.study/api',
+  baseURL: BASE_URL,
 });
 
 export async function getCategories() {
@@ -14,4 +17,3 @@ export async function getDesserts({ page = 1, limit = 8, category = '' } = {}) {
   const { data } = await api.get('/desserts', { params });
   return data;
 }
-

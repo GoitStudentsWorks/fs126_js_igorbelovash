@@ -1,3 +1,8 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 .dessert-list {
     padding: 64px 0;
 }
@@ -9,7 +14,6 @@
     line-height: 1.2;
     letter-spacing: -0.01em;
     text-align: center;
-    color: #080c0c;
     margin-bottom: 24px;
 }
 
@@ -19,7 +23,6 @@
     font-weight: 400;
     line-height: 1.5;
     text-align: center;
-    color: #080c0c;
     margin-bottom: 40px;
 }
 
@@ -32,18 +35,15 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 24px 32px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 .dessert-list__cat-btn {
+    font-family: "Work Sans", sans-serif;
     border: 1px solid #080c0c;
     border-radius: 999px;
     padding: 10px 24px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
-    cursor: pointer;
     text-align: center;
     transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
@@ -77,13 +77,14 @@
     padding: 8px 8px 8px 12px;
     border: 2px solid #202424;
     border-radius: 6px;
-    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    color: inherit;
+    background-color: #ebfcfb;
 }
 
-.custom-select__trigger:focus,
 .custom-select__trigger:focus-visible {
     outline: none;
-    border-color: #f19898;
 }
 
 .custom-select__trigger svg {
@@ -99,20 +100,16 @@
     font-family: "Work Sans", sans-serif;
     display: none;
     position: absolute;
-    top: calc(100% + 6px);
+    top: calc(100% + 2px);
     left: 0;
     width: 100%;
-    background: #f5fdfd;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
+    background: #ebfcfb;
+    border: 2px solid #202424;
+    border-radius: 6px;
     max-height: 220px;
     overflow-y: auto;
-    list-style: none;
-    margin: 0;
-    padding: 0;
     z-index: 50;
-    scrollbar-width: thin;
-    scrollbar-color: #f19898 #00000000;
+    scrollbar-color: #ebfcfb transparent;
 }
 
 .custom-select__dropdown::-webkit-scrollbar {
@@ -125,7 +122,7 @@
 }
 
 .custom-select__dropdown::-webkit-scrollbar-thumb {
-    background: #f19898;
+    background: #ebfcfb;
     border-radius: 4px;
 }
 
@@ -135,27 +132,27 @@
 
 .custom-select__option {
     padding: 10px 14px;
-    cursor: pointer;
     font-size: 14px;
     transition: background 0.2s;
+    cursor: pointer
 }
 
 .custom-select__option:hover {
-    background-color: #fbd5d5;
+    background-color: transparent;
+    border-bottom: 1px solid #fbd5d5;
 }
 
 .custom-select__option.is-active {
-    background-color: #f19898;
+    background-color: transparent;
     font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
 .dessert-list__grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 32px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 .dessert-card {
@@ -166,12 +163,15 @@
     display: flex;
     flex-direction: column;
     transition: transform 0.2s, box-shadow 0.2s;
+    padding: 16px;
 }
 
 .dessert-card__img-wrap {
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    padding: 16px;
+    width: 100%;
+    max-width: 303px;
+    height: 227px;
+    margin-bottom: 16px;
+    overflow: hidden;   
 }
 
 .dessert-card__img {
@@ -183,7 +183,6 @@
 }
 
 .dessert-card__body {
-    padding: 16px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -194,7 +193,6 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
-    color: #080c0c;
     margin: 0 0 12px;
 }
 
@@ -210,6 +208,7 @@
     font-family: "Work Sans", sans-serif;
     font-size: 14px;
     font-weight: 400;
+    line-height: 1.5;
     margin-bottom: auto;
 }
 
@@ -224,30 +223,29 @@
 .dessert-card__price {
     font-size: 20px;
     font-weight: 600;
+    font-family: "Work Sans", sans-serif;
 }
 
 .dessert-card__btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
     padding: 10px;
     border: 2px solid #080c0c;
     border-radius: 100px;
     background: #00000000;
-    cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .dessert-card__btn svg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     fill: #080c0c;
     transition: fill 0.2s;
 }
 
-.dessert-card__btn:hover {
+.dessert-card__btn:hover,
+.dessert-card__btn:focus {
     background-color: #f19898;
 }
 
@@ -296,14 +294,6 @@
     margin-top: 40px;
 }
 
-.dessert-list__load-more[hidden] {
-    display: none;
-}
-
-.dessert-list__load-more {
-    width: 100%;
-}
-
 .btn {
     display: inline-flex;
     align-items: center;
@@ -312,20 +302,30 @@
     font-size: 16px;
     font-weight: 500;
     border-radius: 100px;
-    border: none;
-    cursor: pointer;
 }
 
-.btn--outline {
-    padding: 10px 32px;
+.dessert-list__load-more {
+    width: 100%;
+    padding: 10px 24px;
     background-color: #f19898;
+    border: 2px solid transparent;
     white-space: nowrap;
     transition: background-color 0.2s, border 0.2s;
 }
 
-.btn--outline:hover {
+.dessert-list__load-more:hover,
+.dessert-list__load-more:focus,
+.dessert-list__load-more:focus-visible {
     background-color: #ffffff;
-    border: 2px solid #080c0c;
+    border-color: #080c0c;
+}
+
+.dessert-list__load-more:active {
+    background-color: #f5b6b6;;
+}
+
+.dessert-list__load-more[hidden] {
+    display: none;
 }
 
 @media (min-width: 768px) {
@@ -382,12 +382,15 @@
     }
 
     .dessert-list__load-more {
+        padding: 10px 103px;
         width: auto;
     }
 
-    .btn--outline {
-        padding: 10px 103px;
+    .dessert-card__img-wrap {
+        max-width: 312px;
+        height: 234px;
     }
+
 }
 
 @media (min-width: 1440px) {
@@ -426,8 +429,12 @@
         margin-top: 0;
         margin-bottom: 0;
     }
+    .dessert-list__load-more {
+        padding: 10px 32px;
+    }
 
-    .btn--outline {
-        padding: 10px 30px;
+    .dessert-card__img-wrap {
+        max-width: 278px;
+        height: 209px;
     }
 }

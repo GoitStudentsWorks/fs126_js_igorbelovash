@@ -6,15 +6,14 @@
 
         <div class="dessert-list__filters">
 
-            <!-- Desktop: category buttons (hidden on mobile/tablet via CSS) -->
             <ul class="dessert-list__categories js-categories" aria-label="Filter by category"></ul>
 
-            <!-- Mobile / Tablet: custom dropdown (hidden on desktop via CSS) -->
+
             <div class="dessert-list__select-wrap">
                 <div class="custom-select js-custom-select">
                     <button class="custom-select__trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
                         <span class="custom-select__label">Всі десерти</span>
-                        <svg width="20" height="20" aria-hidden="true">
+                        <svg width="24" height="24" aria-hidden="true">
                             <use href="/img/sprite.svg#icon-keyboard_arrow_down"></use>
                         </svg>
                     </button>
@@ -26,7 +25,7 @@
 
         <ul class="dessert-list__grid js-dessert-grid" aria-label="Desserts catalog"></ul>
 
-        <div class="dessert-list__loader js-dessert-loader">
+        <div class="dessert-list__loader js-dessert-loader" hidden>
             <span class="loader"></span>
         </div>
 
