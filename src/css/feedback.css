@@ -1,61 +1,60 @@
 @import "css-star-rating/css/star-rating.css";
+
 .feedback-section {
-  overflow: hidden;
-  position: relative;
-  padding-top: 64px;
+    overflow: hidden;
+    position: relative;
+    padding-top: 64px;
 }
 
 .feedback-section .swiper.feedback-swiper {
-  position: relative;
-  overflow: visible;
-  width: 100%;
-  padding-bottom: 96px;
+    position: relative;
+    overflow: visible;
+    width: 100%;
+    padding-bottom: 96px;
 }
 
 .feedback-section .swiper-slide {
-  display: flex;
-  height: auto;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0;
-   
+    display: flex;
+    height: auto;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
 }
 
 .feedback-section .swiper-slide.swiper-slide-visible {
-  opacity: 1;
-  pointer-events: auto;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .feedback-pagination {
-  position: absolute;
-  left: 0;
-  right: auto;
-  top: auto;
-  bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+    position: absolute;
+    left: 0;
+    right: auto;
+    top: auto;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .feedback-section .swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
 .feedback-section .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
-  left: 0;
-  transform: none;
-  bottom: 18px;
+    left: 0;
+    transform: none;
+    bottom: 18px;
 }
 
-.feedback-section .feedback-swiper .feedback-pagination  {
-  opacity: 1;
-  width: 8px;
-  height: 8px;
-  display: inline-block;
-  border-radius: 50%;
-  margin: 0;
+.feedback-section .feedback-swiper .feedback-pagination {
+    opacity: 1;
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 0;
 }
 
 .feedback-section .feedback-swiper .feedback-pagination .swiper-pagination-bullet-active {
     background: #080c0c;
 }
-
 
 .feedback-section .feedback-slide-btn {
     display: flex;
@@ -64,7 +63,7 @@
     height: 48px;
     width: 48px;
     border: solid 2px #080c0c;
-    background-color: #F5FDFD;
+    background-color: #f5fdfd;
     padding: 0;
     position: absolute;
     z-index: 10;
@@ -79,23 +78,21 @@
 
 .feedback-section .feedback-slide-btn:focus,
 .feedback-section .feedback-slide-btn:hover {
-    background-color: #F19898;
+    background-color: #f19898;
 }
 
 .feedback-section .feedback-slide-btn:active {
-    background-color: #C07979;
+    background-color: #c07979;
 }
 
 .feedback-section .feedback-slide-btn:disabled {
-    border: #F5FDFD;
-       
+    border: #f5fdfd;
 }
 
 .feedback-section .feedback-slide-btn svg {
     fill: #080c0c;
-    stroke: #080C0C;
+    stroke: #080c0c;
 }
-
 
 .feedback-section .feedback-slide-btn.button-prev {
     left: auto;
@@ -113,7 +110,7 @@
     margin-bottom: 24px;
     font-weight: 700;
     font-size: 36px;
-    color: #080C0C;
+    color: #080c0c;
 }
 
 .feedback-p {
@@ -121,14 +118,14 @@
     font-weight: 400;
     font-size: 18px;
     text-align: center;
-    color: #080C0C;
+    color: #080c0c;
     margin: 0 auto 40px auto;
     max-width: 100%;
 }
 
 .feedback-card {
-    background: #F5FDFD;
-    border: 2px solid #080C0C;
+    background: #f5fdfd;
+    border: 2px solid #080c0c;
     border-radius: 16px;
     padding: 24px;
     width: 100%;
@@ -141,7 +138,6 @@
     display: flex;
     align-items: center;
     gap: 4px;
-
 }
 
 .rating-wrapper .star {
@@ -153,7 +149,7 @@
     font-family: "Work Sans", sans-serif;
     font-size: 18px;
     line-height: 1.5;
-    color: #080C0C;
+    color: #080c0c;
     margin-top: 24px;
     margin-bottom: 16px;
 }
@@ -161,7 +157,7 @@
 .feedback-author {
     font-family: "Work Sans", sans-serif;
     font-weight: 600;
-    color: #080C0C;
+    color: #080c0c;
     margin-top: auto;
 }
 
@@ -175,7 +171,7 @@
     min-height: 200px;
     font-family: "Work Sans", sans-serif;
     font-size: 16px;
-    color: #080C0C;
+    color: #080c0c;
     position: absolute;
     top: 0;
     left: 0;
@@ -186,7 +182,7 @@
 .feedback-loader .spinner {
     width: 48px;
     height: 48px;
-    border: 5px solid #080C0C;
+    border: 5px solid #080c0c;
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;
@@ -196,106 +192,104 @@
 
 @keyframes rotation {
     0% {
-    transform: rotate(0deg);
+        transform: rotate(0deg);
     }
 
     100% {
-    transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 
-
 @media only screen and (min-width: 768px) {
     .feedback-section {
-    max-width: 768px;
-    padding: 64px 32px;
-   }
+        max-width: 768px;
+        padding: 64px 32px;
+    }
 
     .feedback-p {
-    max-width: none;
-    width: max-content;
-    white-space: nowrap;
+        max-width: none;
+        width: max-content;
+        white-space: nowrap;
     }
 
     .feedback-section .swiper.feedback-swiper {
-    padding-bottom: 64px;
-        
-    }
-    .feedback-section .swiper-slide {
-    pointer-events: auto;
+        padding-bottom: 64px;
     }
 
     .feedback-section .swiper-slide {
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: auto;
     }
 
-   
+    .feedback-section .swiper-slide {
+        transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
     .feedback-section .swiper-slide.slide-hidden {
-    opacity: 0;
-    pointer-events: none;
+        opacity: 0;
+        pointer-events: none;
     }
 
     .feedback-card {
-    min-height: 233px;
+        min-height: 233px;
     }
 
     .feedback-pagination {
-    position: absolute;
-    transform: translateY(50px);
-    z-index: 1;
-    display: flex;
-    justify-content: center;
+        position: absolute;
+        transform: translateY(50px);
+        z-index: 1;
+        display: flex;
+        justify-content: center;
     }
 
     .feedback-section .swiper-horizontal>.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
     .feedback-section .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
-    left: 50%;
-    transform: translateX(-50%);
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .feedback-section .feedback-slide-btn {
-    top: calc(50% - 32px);
-    bottom: auto;
-    transform: translateY(-50%);
+        top: calc(50% - 32px);
+        bottom: auto;
+        transform: translateY(-50%);
     }
 
     .feedback-section .feedback-slide-btn.button-prev {
-    left: -24px;
-    right: auto;
+        left: -24px;
+        right: auto;
     }
 
     .feedback-section .feedback-slide-btn.button-next {
-    right: -24px;
-    left: auto;
+        right: -24px;
+        left: auto;
     }
-   
+
     .feedback-section .feedback-swiper .swiper-pagination.feedback-pagination {
-    bottom: 0;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%) translateY(48px);
-    justify-content: center;
-    width: 100%;
-    gap: 9px;
+        bottom: 0;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%) translateY(48px);
+        justify-content: center;
+        width: 100%;
+        gap: 9px;
     }
 }
 
 @media only screen and (min-width: 1440px) {
     .feedback-section {
-    max-width: 1440px;
-    padding: 80px 64px;
+        max-width: 1440px;
+        padding: 80px 64px;
     }
 
     .feedback-h {
-    font-size: 48px;
+        font-size: 48px;
     }
 
     .feedback-p {
-    margin-bottom: 80px;
+        margin-bottom: 80px;
     }
 
     .feedback-card {
-    padding: 32px;
+        padding: 32px;
     }
 }
 
