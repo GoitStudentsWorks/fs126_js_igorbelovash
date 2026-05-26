@@ -10,42 +10,20 @@
       <label class="modal-label" for="name">
         Ім'я*
 
-        <input
-          class="modal-input"
-          name="username"
-          id="name"
-          type="text"
-          placeholder="Вікторія"
-          minlength="2"
-          pattern="[А-Яа-яІіЇїЄєҐґ\s]+"
-          required
-      /></label>
+        <input class="modal-input" name="username" id="name" type="text" placeholder="Вікторія" minlength="2"
+          pattern="[А-Яа-яІіЇїЄєҐґ\s]+" required /></label>
 
       <label class="modal-label" for="phone">
         Телефон*
 
-        <input
-          class="modal-input"
-          id="phone"
-          name="phone"
-          type="tel"
-          placeholder="38 0_ ___"
-          pattern="+?3?8?0[0-9\s-]{9,12}"
-          required
-        />
+        <input class="modal-input" id="phone" name="phone" type="tel" placeholder="38 0_ ___"
+          pattern="+?3?8?0[0-9\s-]{9,12}" required />
       </label>
       <label class="modal-label" for="comment">
         Коментар*
 
-        <textarea
-          class="modal-textarea"
-          id="comment"
-          name="textComment"
-          placeholder="Ваш коментар"
-          minlength="10"
-          maxlength="250"
-          required
-        ></textarea>
+        <textarea class="modal-textarea" id="comment" name="textComment" placeholder="Ваш коментар" minlength="10"
+          maxlength="250" required></textarea>
       </label>
       <button class="modal-submit" type="submit">Надіслати заявку</button>
     </form>
