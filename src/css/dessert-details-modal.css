@@ -1,0 +1,219 @@
+/*------modal------*/
+.overlay-details {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay-details.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.modal {
+    border-radius: 16px;
+    width: 335px;
+    max-height: 90vh;
+    height: auto;
+    overflow: hidden;
+    background-color: #f5fdfd;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay-details:not(.is-open) .modal {
+    transform: translate(-50%, -100%) scale(0.9);
+}
+
+.modal-details-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-icon-close {
+    fill: #080C0C;
+    stroke: #080C0C;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-details-close:hover,
+.modal-details-close:focus-visible {
+    transform: scale(1.1);
+    outline: none;
+}
+
+.modal-details-close:hover .modal-icon-close,
+.modal-details-close:focus-visible .modal-icon-close {
+    transform: scale(1.1);
+    outline: none;
+}
+
+.modal-info {
+    padding: 64px 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-img-thumb {
+    width: 100%;
+    height: 221.25px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-details-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.modal-price {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.modal-rating {
+    color: #080C0C;
+    width: 96px;
+    height: 15px;
+    margin-bottom: 24px;
+}
+
+.modal-description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.modal-ingredients strong {
+    font-family: sans-serif;
+    font-weight: 700;
+}
+
+.modal-ingredients {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.modal-sub-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.to-order-btn {
+    border: none;
+    background-color: #f19898;
+    border-radius: 100px;
+    padding: 10px 24px;
+    width: 295px;
+    height: 44px;
+    cursor: pointer;
+}
+
+.to-order-btn:hover,
+.to-order-btn:focus {
+    background-color: #ffffff;
+    border: 2px solid #080c0c;
+    transform: scale(1.03);
+    
+    cursor: pointer;
+}
+
+.to-order-btn:active {
+    background-color: #f5b6b6;
+    outline: 2px solid #080c0c;
+    transform: scale(1);
+}
+
+@media screen and (min-width: 768px) {
+    .modal {
+        width: 704px;
+        height: 959px;
+    }
+
+    .modal-info {
+        padding-bottom: 112px;
+    }
+
+    .modal-img-thumb {
+        height: 480px;
+        margin-bottom: 24px;
+        border-radius: 16px;
+    }
+
+    .modal-sub-btn {
+        justify-content: flex-start;
+    }
+
+    .to-order-btn {
+        width: 310px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .modal {
+        width: 1312px;
+        height: 611px;
+    }
+
+    .modal-info {
+        flex-direction: row;
+        padding: 64px 64px 112px;
+        gap: 24px;
+        align-items: center;
+    }
+
+    .modal-img-thumb {
+        width: 580px;
+        height: 435px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+        border-radius: 16px;
+    }
+
+    .modal-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .modal-content-wrapper {
+        flex-grow: 1;
+        text-align: left;
+    }
+
+    .modal-title {
+        font-size: 40px;
+    }
+}
