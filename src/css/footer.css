@@ -1,6 +1,6 @@
 footer {
-  background-color: #9FF1EF;
-  padding: 48px 20px;
+  background-color: #9ff1ef;
+  padding: 48px 0;
 }
 
 .footer__container {
@@ -9,19 +9,23 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 32px;
 }
 
 .footer__logo {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  transition: opacity .25s ease;
-  margin-bottom: 67px;
+  transition: opacity 0.25s ease;
 }
 
 .footer__logo:hover {
-  opacity: .8;
+  opacity: 0.8;
   cursor: pointer;
+}
+
+.footer__logo:focus {
+  opacity: 0.8;
 }
 
 .footer__list {
@@ -35,28 +39,30 @@ footer {
 }
 
 .footer__link {
-  font-family: "Work Sans", sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-size: 18px;
-  color: #080C0C;
+  color: #080c0c;
   font-weight: 600;
   line-height: 150%;
   text-decoration: none;
-  transition: color .25s ease, text-decoration .25s ease;
+  transition:
+    color 0.25s ease,
+    text-decoration 0.25s ease;
 }
 
 .footer__link:hover,
-.footer__link:focus{
-  color: #F19898;
+.footer__link:focus {
+  color: #f19898;
   text-decoration: underline;
 }
 
 .footer__link:active {
-  color: #C07979;
+  color: #c07979;
 }
 
 .footer__link.disabled,
-.footer__link[aria-disabled="true"] {
-  color: #F19898;
+.footer__link[aria-disabled='true'] {
+  color: #f19898;
   pointer-events: none;
 }
 
@@ -65,22 +71,26 @@ footer {
   gap: 24px;
 }
 
- .footer__social-link {
+.footer__social-link {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  transition:  transform .25s ease;
-  margin-top: 32px;
+  transition: transform 0.25s ease;
 }
 
-.footer__social-link:hover{
- transform: scale(1.15);
+.footer__social-link:hover,
+.footer__social-link:focus {
+  transform: scale(1.15);
+}
+
+.footer__social-link:active {
+  transform: scale(1.05);
 }
 
 .footer__social-icon {
   width: 44px;
   height: 44px;
-} 
+}
 
 .footer__divider {
   width: 100%;
@@ -92,9 +102,10 @@ footer {
 .footer__copy {
   margin-top: 32px;
   font-size: 14px;
-  color: #080C0C;
+  color: #080c0c;
   line-height: 150%;
   text-align: center;
+  letter-spacing: -1px;
 }
 
 /* ---------- TABLET ---------- */
@@ -107,9 +118,8 @@ footer {
 
 /* ---------- DESKTOP ---------- */
 @media (min-width: 1200px) {
-
   .footer {
-    padding: 40px 64px;
+    padding: 40px 0;
   }
 
   .footer__container {
@@ -148,10 +158,6 @@ footer {
     justify-self: end;
     gap: 12px;
     margin: 0;
-  }
-
-  .footer__social-link {
-    margin-top: 0;
   }
 
   .footer__social-icon {
