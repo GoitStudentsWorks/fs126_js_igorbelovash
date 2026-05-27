@@ -47,6 +47,11 @@ function hideProductsSection() {
   productsContainer.innerHTML = '';
 }
 
+function getProductId(product) {
+  return product.id || product._id;
+}
+
+
 async function getPopularProducts() {
   if (!productsSection || !productsContainer) {
     return;
@@ -69,8 +74,11 @@ async function getPopularProducts() {
       return;
     }
 
-    const validDesserts = data.desserts.filter(
-      ({ image, category, name, description, price }) =>
+    const validDesserts = data.desserts.filter(product => {
+      const { image, category, name, description, price } = product;
+
+      return (
+        getProductId(product) &&
         image &&
         category?.name &&
         name &&
@@ -78,7 +86,8 @@ async function getPopularProducts() {
         price !== undefined &&
         price !== null &&
         price !== ''
-    );
+      );
+    });
 
     if (validDesserts.length < 3) {
       hideProductsSection();
