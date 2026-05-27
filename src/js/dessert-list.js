@@ -1,6 +1,7 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import { getCategories, getDesserts } from './services/api/api.js';
+import  createMarkup  from './utils/createMarkupForProductCard';
 
 let state = {
   page: 1,
@@ -143,7 +144,7 @@ async function loadDesserts(reset = false) {
 
     els.grid?.insertAdjacentHTML(
       'beforeend',
-      items.map(renderDessertCard).join('')
+      createMarkup(items)
     );
 
     ui.toggleLoadMore();
@@ -216,6 +217,5 @@ els.loadMore?.addEventListener('click', () => {
   await loadCategories();
   await loadDesserts(true);
 })();
-
 
 
