@@ -98,11 +98,11 @@
   }
 
   .about-us-pagination {
-    position: absolute;
-    z-index: 1;
+    margin-top: 48px;
+    height: 28px;
     display: flex;
     justify-content: center;
-    transform: translateY(50px);
+    align-items: center;
   }
 
   .about-us-pagination .swiper-pagination-bullet-active {
