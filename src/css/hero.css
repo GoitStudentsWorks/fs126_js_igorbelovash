@@ -1,6 +1,8 @@
 /* Mobile */
 .hero {
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   padding-top: 155px;
   padding-bottom: 155px;
 
@@ -8,18 +10,14 @@
   background-position: center;
   background-size: cover;
 
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('/img/hero-mobile_1x.jpg');
+  background-image: url('/img/hero-mobile_1x.jpg');
 }
 
 /* Retina mobile */
-@media screen and (min-resolution: 2dppx),
-  screen and (-webkit-min-device-pixel-ratio: 2) {
+@media screen and (max-width: 767px) and (min-resolution: 2dppx),
+  screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
   .hero {
-    background-image:
-      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('/img/hero-mobile_2x.jpg');
+    background-image: url('/img/hero-mobile_2x.jpg');
   }
 }
 
@@ -101,9 +99,7 @@
     padding-top: 325px;
     padding-bottom: 325px;
 
-    background-image:
-      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('/img/hero-tablet_1x.jpg');
+    background-image: url('/img/hero-tablet_1x.jpg');
   }
 
   .hero-content {
@@ -120,9 +116,7 @@
 @media screen and (min-width: 768px) and (min-resolution: 2dppx),
   screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
   .hero {
-    background-image:
-      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('/img/hero-tablet_2x.jpg');
+    background-image: url('/img/hero-tablet_2x.jpg');
   }
 }
 
@@ -132,9 +126,7 @@
     min-height: 900px;
     padding-top: 306px;
     padding-bottom: 306px;
-    background-image:
-      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('/img/hero-desktop_1x.jpg');
+    background-image: url('/img/hero-desktop_1x.jpg');
   }
 
   .hero-content {
@@ -150,8 +142,6 @@
 @media screen and (min-width: 1440px) and (min-resolution: 2dppx),
   screen and (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2) {
   .hero {
-    background-image:
-      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url('/img/hero-desktop_2x.jpg');
+    background-image: url('/img/hero-desktop_2x.jpg');
   }
 }
