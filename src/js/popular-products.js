@@ -1,9 +1,10 @@
 import axios from 'axios';
 import iziToast from 'izitoast';
 import Swiper from 'swiper';
+import { getCategories, getDesserts } from './services/api/api.js';
 import { Pagination, Navigation } from 'swiper/modules';
 
-import { createMarkup } from './utils/createMarkupForProductCard';
+import  createMarkup  from './utils/createMarkupForProductCard';
 import 'izitoast/dist/css/iziToast.min.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -54,11 +55,11 @@ async function getPopularProducts() {
   showProductsLoading();
 
   try {
-    const { data } = await axios(`${BASE_URL}${END_POINT}`, {
-      params: {
-        type: 'popular',
-      },
-    });
+    const data = await getDesserts({
+          page: 1,
+          limit: 10,
+          type: 'popular'
+        });
     if (!Array.isArray(data.desserts)) {
       throw new Error('Невірний формат даних з API');
     }
@@ -124,3 +125,5 @@ function initPopularProductsSwiper() {
     },
   });
 }
+
+

@@ -1,4 +1,4 @@
-export function createMarkup(arr, options = {}) {
+export default function createMarkup(arr, options = {}) {
   if (!Array.isArray(arr)) return '';
 
   const { slide = false } = options;
@@ -27,3 +27,4 @@ export function createMarkup(arr, options = {}) {
     )
     .join('');
 }
+
