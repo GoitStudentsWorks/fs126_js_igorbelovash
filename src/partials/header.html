@@ -1,8 +1,13 @@
 <header class="header">
   <div class="container header-container">
     <!-- LOGO + NAME -->
-    <a href="./index.html" class="logo">              <!-- виправив шлях ./index.html -->
+    <!-- <a href="./index.html" class="logo">
       <img src="/img/company-logo.svg" alt="Sweet Workshop logo" />
+    </a> -->
+    <a href="./index.html" class="logo" aria-label="Солодка Майстерня">
+      <svg class="logo-icon" width="151" height="65">
+        <use href="./img/sprite.svg#icon-Company-Logo"></use>
+      </svg>
     </a>
 
     <!-- NAVIGATION -->
@@ -17,12 +22,18 @@
       </nav>
 
       <!-- BUTTON -->
-      <a href="#orderModal" class="header-btn">До покупок</a>
+      <a href="#desserts" class="header-btn">До покупок</a>
     </div>
 
     <!-- BURGER MENU -->
-    <button type="button" class="menu-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false"
-      aria-controls="mobileMenu">
+    <button
+      type="button"
+      class="menu-btn"
+      id="burgerBtn"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobileMenu"
+    >
       <svg class="icon" width="24" height="24">
         <use href="/img/sprite.svg#icon-menu"></use>
       </svg>
