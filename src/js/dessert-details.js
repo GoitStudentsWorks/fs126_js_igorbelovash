@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 let currentDessertId = null;
-const BASE_URL = 'https://deserts-store.b.goit.study/api/';
+const BASE_URL = 'https://deserts-store.b.goit.study/api/desserts';
 
 const dessertContainer = document.querySelector('.js-dessert-grid');
 const overlay = document.querySelector('.overlay-details');
@@ -15,9 +15,7 @@ const modalRating = document.querySelector('.modal-rating');
 const modalDescription = document.querySelector('.modal-description');
 const modalIngredients = document.querySelector('.modal-ingredients');
 
-/**
- * Функція для генерації текстових зірочок рейтингу
- */
+
 function generateStars(rating) {
   const numericRating = Number(rating) || 5;
   const totalStars = 5;
@@ -32,6 +30,21 @@ function generateStars(rating) {
   return '★'.repeat(finalFullStars) + (hasHalfStar ? '⯪' : '') + '☆'.repeat(emptyStarsCount);
 }
 
+let scrollTimeout;
+function initScrollbarFade() {
+    const scrollContainer = document.querySelector('.modal-content-wrapper');
+    if (!scrollContainer) return;
+
+    scrollContainer.addEventListener('scroll', () => {
+        scrollContainer.classList.add('is-scrolling');
+        clearTimeout(scrollTimeout);
+
+        scrollTimeout = setTimeout(() => {
+            scrollContainer.classList.remove('is-scrolling');
+        }, 1200);
+    });
+}
+
 async function openDetailsById(id) {
     if (!id || id === 'undefined') {
         console.error('Помилка: Спроба відкрити модалку без дійсного ID десерту.');
@@ -41,11 +54,11 @@ async function openDetailsById(id) {
     currentDessertId = id;
     
     try {
-        // Запит до GoIT API на отримання одного десерту за схемою /api/:id
+
         const response = await axios.get(`${BASE_URL}${id}`);
         const dessert = response.data;
 
-        // Рендеримо отримані дані у поля модалки
+
         if (modalImg) { modalImg.src = dessert.image; modalImg.alt = dessert.name; }
         if (modalTitle) modalTitle.textContent = dessert.name;
         if (modalPrice) modalPrice.textContent = `${dessert.price} грн`;
@@ -53,14 +66,14 @@ async function openDetailsById(id) {
         if (modalRating) modalRating.textContent = generateStars(dessert.rating);
         if (modalIngredients) modalIngredients.innerHTML = `<strong>Склад:</strong> ${dessert.ingredients}`;
 
-        // Відкриваємо модалку на екрані
+
         openModal();
     } catch (error) {
         console.error(`Не вдалося завантажити десерт за адресою ${BASE_URL}${id}:`, error);
     }
 }
 
-async function handleDessertClick(event) {
+export async function handleDessertClick(event) {
     const targetBtn = event.target.closest('.product-card-btn');
     if (!targetBtn) return;
 
@@ -83,7 +96,10 @@ function handleOrderClick() {
 
 function openModal() {
     overlay.classList.add('is-open');
-    document.body.style.overflow = 'hidden'; 
+    document.documentElement.classList.add('no-scroll');
+    document.body.classList.add('no-scroll');
+
+    initScrollbarFade();
 
     modalCloseBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', handleBackdropClick);
@@ -93,7 +109,10 @@ function openModal() {
 
 function closeModal() {
     overlay.classList.remove('is-open');
-    document.body.style.overflow = ''; 
+    document.body.style.overflow = '';
+    
+    document.documentElement.classList.remove('no-scroll');
+    document.body.classList.remove('no-scroll');
 
     modalCloseBtn.removeEventListener('click', closeModal);
     overlay.removeEventListener('click', handleBackdropClick);
