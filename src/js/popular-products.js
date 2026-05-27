@@ -72,7 +72,7 @@ function createMarkup(arr, options = {}) {
             <p class="product-price">${price} грн</p>
             <button class="product-card-btn" type="button" aria-label="Open product details">
               <svg class="product-card-svg" width="24" height="24">
-                <use href="/img/sprite.svg#icon-arrow_outward">
+                <use href="./img/sprite.svg#icon-arrow_outward">
                 </use>
               </svg>
             </button>
