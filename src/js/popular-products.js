@@ -125,7 +125,6 @@ async function getPopularProducts() {
       return;
     }
 
-    console.log(validDesserts);
     productsContainer.innerHTML = createMarkup(validDesserts, { slide: true });
     showProductsSection();
     initPopularProductsSwiper();
