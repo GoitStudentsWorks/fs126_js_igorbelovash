@@ -14,6 +14,7 @@ const END_POINT = 'desserts';
 
 const productsSection = document.querySelector('.popular-products-section');
 const productsContainer = document.querySelector('.popular-products-list');
+const productsLoader = document.querySelector('.js-popular-products-loader');
 
 function showWarning(message) {
   iziToast.warning({
@@ -34,16 +35,19 @@ function showError(message) {
 function showProductsLoading() {
   productsSection.classList.remove('is-hidden');
   productsSection.classList.add('is-loading');
+  productsLoader?.removeAttribute('hidden');
   productsContainer.innerHTML = '';
 }
 
 function showProductsSection() {
   productsSection.classList.remove('is-hidden', 'is-loading');
+  productsLoader?.setAttribute('hidden', '');
 }
 
 function hideProductsSection() {
   productsSection.classList.add('is-hidden');
   productsSection.classList.remove('is-loading');
+  productsLoader?.setAttribute('hidden', '');
   productsContainer.innerHTML = '';
 }
 
@@ -134,5 +138,4 @@ function initPopularProductsSwiper() {
     },
   });
 }
-
 
