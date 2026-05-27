@@ -1,5 +1,5 @@
 <header class="header">
-  <div class="container">
+  <div class="container header-container">
     <!-- LOGO + NAME -->
     <a href="./index.html" class="logo">              <!-- виправив шлях ./index.html -->
       <img src="/img/company-logo.svg" alt="Sweet Workshop logo" />
@@ -21,7 +21,8 @@
     </div>
 
     <!-- BURGER MENU -->
-    <button type="button" class="menu-btn" id="burgerBtn">
+    <button type="button" class="menu-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false"
+      aria-controls="mobileMenu">
       <svg class="icon" width="24" height="24">
         <use href="/img/sprite.svg#icon-menu"></use>
       </svg>

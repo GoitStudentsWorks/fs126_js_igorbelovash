@@ -22,7 +22,7 @@
   margin: 0 auto 40px auto;
 }
 
-.swiper.contact-us-gallery {
+.about-us-section .swiper.contact-us-gallery {
   position: relative;
   overflow: visible;
 }
@@ -31,7 +31,7 @@
   flex-direction: column;
 }
 
-.swiper-slide:not(:last-child) {
+.about-us-section .swiper-slide:not(:last-child) {
   margin-bottom: 24px;
 }
 
@@ -54,15 +54,15 @@
     flex-direction: row;
   }
 
-  .swiper-slide {
+  .about-us-section .swiper-slide {
     opacity: 0;
   }
 
-  .swiper-slide-visible {
+  .about-us-section .swiper-slide-visible {
     opacity: 1;
   }
 
-  .swiper-slide:not(:last-child) {
+  .about-us-section .swiper-slide:not(:last-child) {
     margin-bottom: 0;
   }
 
@@ -98,11 +98,11 @@
   }
 
   .about-us-pagination {
-    position: absolute;
-    z-index: 1;
+    margin-top: 48px;
+    height: 28px;
     display: flex;
     justify-content: center;
-    transform: translateY(50px);
+    align-items: center;
   }
 
   .about-us-pagination .swiper-pagination-bullet-active {

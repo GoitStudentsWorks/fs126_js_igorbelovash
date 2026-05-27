@@ -1,12 +1,17 @@
 <!-- MOBILE NAVBAR -->
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog">
   <!-- top bar -->
   <div class="mobile-menu-top">
     <a href="/" class="logo">
-      <img src="/img/company-logo.svg" alt="Logo" />
+      <img src="/img/company-logo.svg" alt="Sweet Workshop logo" />
     </a>
 
-    <button type="button" class="close-btn" id="closeBtn">
+    <button
+      type="button"
+      class="close-btn"
+      id="closeBtn"
+      aria-label="Close menu"
+    >
       <svg width="24" height="24">
         <use href="/img/sprite.svg#icon-close"></use>
       </svg>
