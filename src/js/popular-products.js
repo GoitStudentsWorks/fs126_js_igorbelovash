@@ -3,6 +3,7 @@ import iziToast from 'izitoast';
 import Swiper from 'swiper';
 import { Pagination, Navigation } from 'swiper/modules';
 
+import spriteUrl from '../img/sprite.svg';
 import 'izitoast/dist/css/iziToast.min.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -72,8 +73,7 @@ function createMarkup(arr, options = {}) {
             <p class="product-price">${price} грн</p>
             <button class="product-card-btn" type="button" aria-label="Open product details">
               <svg class="product-card-svg" width="24" height="24">
-                <use href="./img/sprite.svg#icon-arrow_outward">
-                </use>
+                <use href="${spriteUrl}#icon-arrow_outward"></use>
               </svg>
             </button>
           </div>
