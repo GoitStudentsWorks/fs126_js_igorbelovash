@@ -202,7 +202,6 @@
 
 @media only screen and (min-width: 768px) {
     .feedback-section {
-        max-width: 768px;
         padding-top: 64px;
         padding-bottom: 64px;
     }
@@ -277,7 +276,6 @@
 
 @media only screen and (min-width: 1440px) {
     .feedback-section {
-        max-width: 1440px;
         padding-top: 80px;
         padding-bottom: 80px;
     }
