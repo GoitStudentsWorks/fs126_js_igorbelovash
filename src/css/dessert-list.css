@@ -55,6 +55,7 @@
 .dessert-list__cat-btn.is-active {
     background-color: #c07979;
     border-color: #080c0c;
+    pointer-events: none;
 }
 
 .dessert-list__select-wrap {
@@ -147,6 +148,7 @@
     font-weight: 500;
     text-decoration: underline;
     text-underline-offset: 4px;
+    pointer-events: none;
 }
 
 .dessert-list__grid {
@@ -396,7 +398,10 @@
 @media (min-width: 1440px) {
     .dessert-list .container {
         display: block;
-        padding: 80px 64px;
+    }
+
+    .dessert-list {
+        padding: 80px 0;
     }
 
     .dessert-list .section-title {

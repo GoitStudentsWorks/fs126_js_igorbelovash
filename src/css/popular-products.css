@@ -275,7 +275,7 @@
   }
 
   .popular-products-list .product-card {
-    height: 520px;
+    height: 100%;
   }
 
   .popular-products-list .product-img-thumb {

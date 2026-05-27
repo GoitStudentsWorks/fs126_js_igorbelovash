@@ -183,6 +183,12 @@ dropdown?.addEventListener('click', e => {
   const opt = e.target.closest('.custom-select__option');
   if (!opt) return;
 
+  const newCategory = opt.dataset.cat || '';
+
+if (newCategory === state.category) {
+  setDropdownOpen(false);
+  return;
+}
   state.category = opt.dataset.cat || '';
   state.page = 1;
 
@@ -200,6 +206,12 @@ document.addEventListener('click', e => {
 els.categories?.addEventListener('click', e => {
   const btn = e.target.closest('.dessert-list__cat-btn');
   if (!btn) return;
+
+  const newCategory = btn.dataset.cat || '';
+
+if (newCategory === state.category) {
+  return;
+}
 
   state.category = btn.dataset.cat || '';
   state.page = 1;
