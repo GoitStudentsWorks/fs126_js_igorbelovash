@@ -3,7 +3,6 @@ import iziToast from 'izitoast';
 import Swiper from 'swiper';
 import { Pagination, Navigation } from 'swiper/modules';
 
-import { createMarkup } from './utils/createMarkupForProductCard';
 import 'izitoast/dist/css/iziToast.min.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -46,6 +45,43 @@ function hideProductsSection() {
   productsContainer.innerHTML = '';
 }
 
+function getProductId(product) {
+  return product.id || product._id;
+}
+
+function createMarkup(arr, options = {}) {
+  if (!Array.isArray(arr)) return '';
+
+  const { slide = false } = options;
+  const cardClass = slide ? 'product-card swiper-slide' : 'product-card';
+
+  return arr
+    .map(product => {
+      const { image, category, name, description, price } = product;
+      const productId = getProductId(product);
+      const categoryName = category.name;
+
+      return `<li class="${cardClass}" data-id="${productId}">
+          <div class="product-img-thumb">
+            <img class="product-img" src="${image}" alt="${name}"/>
+          </div>
+          <p class="product-category">${categoryName}</p>
+          <h4 class="product-name">${name}</h4>
+          <p class="product-description">${description}</p>
+          <div class="product-card-bottom">
+            <p class="product-price">${price} грн</p>
+            <button class="product-card-btn" type="button" aria-label="Open product details">
+              <svg class="product-card-svg" width="24" height="24">
+                <use href="/img/sprite.svg#icon-arrow_outward">
+                </use>
+              </svg>
+            </button>
+          </div>
+        </li>`;
+    })
+    .join('');
+}
+
 async function getPopularProducts() {
   if (!productsSection || !productsContainer) {
     return;
@@ -68,8 +104,11 @@ async function getPopularProducts() {
       return;
     }
 
-    const validDesserts = data.desserts.filter(
-      ({ image, category, name, description, price }) =>
+    const validDesserts = data.desserts.filter(product => {
+      const { image, category, name, description, price } = product;
+
+      return (
+        getProductId(product) &&
         image &&
         category?.name &&
         name &&
@@ -77,7 +116,8 @@ async function getPopularProducts() {
         price !== undefined &&
         price !== null &&
         price !== ''
-    );
+      );
+    });
 
     if (validDesserts.length < 3) {
       hideProductsSection();
