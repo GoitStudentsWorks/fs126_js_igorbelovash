@@ -145,6 +145,7 @@ textarea:not(:focus):invalid:not(:placeholder-shown) {
   }
 
   .modal-submit {
+    display: block;
     width: 344px;
     margin-right: auto;
     margin-left: auto;

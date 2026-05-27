@@ -3,10 +3,49 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const form = document.querySelector('.modal-form');
-
-form.addEventListener('submit', handleSubmit);
+const closeBtn = document.querySelector('.modal-close');
+const modalContainer = document.querySelector('.modal-container');
 
 let dessertsId = null;
+
+function openOrderModal(dessertId) {
+  dessertsId = dessertId;
+  modalContainer.classList.add('is-open');
+  document.documentElement.classList.add('no-scroll');
+  document.body.classList.add('no-scroll');
+
+  closeBtn.addEventListener('click', closeOrderModal);
+  modalContainer.addEventListener('click', handleBackdropClick);
+  document.addEventListener('keydown', handleEscKey);
+}
+
+function closeOrderModal() {
+  modalContainer.classList.remove('is-open');
+  document.documentElement.classList.remove('no-scroll');
+  document.body.classList.remove('no-scroll');
+
+  closeBtn.removeEventListener('click', closeOrderModal);
+  modalContainer.removeEventListener('click', handleBackdropClick);
+  document.removeEventListener('keydown', handleEscKey);
+
+  dessertsId = null;
+}
+
+function handleBackdropClick(event) {
+  if (event.target === modalContainer) closeOrderModal();
+}
+
+function handleEscKey(event) {
+  if (event.key === 'Escape' && modalContainer.classList.contains('is-open')) {
+    closeOrderModal();
+  }
+}
+
+document.addEventListener('open-order', event => {
+  openOrderModal(event.detail.dessertId);
+});
+
+form.addEventListener('submit', handleSubmit);
 
 async function handleSubmit(event) {
   event.preventDefault();
@@ -34,7 +73,8 @@ async function handleSubmit(event) {
       position: 'topRight',
     });
 
-    event.target.reset();
+    form.reset();
+    closeOrderModal();
   } catch (error) {
     iziToast.error({
       title: 'Помилка',
