@@ -1,3 +1,5 @@
+
+
 // burger menu
 const burger = document.getElementById("burgerBtn");
 const closeBtn = document.getElementById("closeBtn");
