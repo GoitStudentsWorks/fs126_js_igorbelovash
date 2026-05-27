@@ -1,9 +1,11 @@
 import axios from 'axios';
 
 let currentDessertId = null;
-const BASE_URL = 'https://deserts-store.b.goit.study/api/desserts';
+const BASE_URL = 'https://deserts-store.b.goit.study/api/desserts/';
 
+const popularContainer = document.querySelector('.popular-products-list');
 const dessertContainer = document.querySelector('.js-dessert-grid');
+
 const overlay = document.querySelector('.overlay-details');
 const modalCloseBtn = document.querySelector('.modal-details-close');
 const openOrderBtn = document.querySelector('.js-open-order-btn');
@@ -74,11 +76,15 @@ async function openDetailsById(id) {
 }
 
 export async function handleDessertClick(event) {
-    const targetBtn = event.target.closest('.product-card-btn');
-    if (!targetBtn) return;
+    const targetBtn = event.target.closest('.dessert-card__btn, .product-card-btn');
+    const targetCard = event.target.closest('.dessert-card');
 
-    const { id } = targetBtn.dataset;
-    openDetailsById(id);
+    if (!targetBtn && !targetCard) return;
+
+    const id = targetBtn?.dataset.id || targetBtn?.dataset.uuid || targetCard?.dataset.id;
+    if (id) {
+        openDetailsById(id);
+    }
 }
 
 function handleOrderClick() {
@@ -109,7 +115,7 @@ function openModal() {
 
 function closeModal() {
     overlay.classList.remove('is-open');
-    document.body.style.overflow = '';
+
     
     document.documentElement.classList.remove('no-scroll');
     document.body.classList.remove('no-scroll');
@@ -145,6 +151,9 @@ function clearModal() {
 
 if (dessertContainer) {
     dessertContainer.addEventListener('click', handleDessertClick);
+}
+if (popularContainer) {
+    popularContainer.addEventListener('click', handleDessertClick);
 }
 
 document.addEventListener('open-details', (event) => {
