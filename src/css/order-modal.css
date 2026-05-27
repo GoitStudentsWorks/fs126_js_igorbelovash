@@ -9,7 +9,9 @@
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-container.is-open {
@@ -59,9 +61,15 @@
 }
 
 .modal-label {
+  display: flex;
+  flex-direction: column;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
+}
+
+.modal-label-text {
+  margin-bottom: 8px;
 }
 
 .modal-input,
@@ -94,6 +102,9 @@
 
   background-color: #f58f8f;
   color: #111;
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-input:focus,
@@ -155,6 +166,8 @@ textarea:not(:focus):invalid:not(:placeholder-shown) {
   }
 
   .modal-submit {
-    width: 196px;
+    width: auto;
+    white-space: nowrap;
+    align-self: center;
   }
 }
