@@ -8,22 +8,46 @@
     <h2 class="modal-title">Оформлення замовлення</h2>
     <form class="modal-form">
       <label class="modal-label" for="name">
-        Ім'я*
+        <span class="modal-label-text">Ім'я*</span>
 
-        <input class="modal-input" name="username" id="name" type="text" placeholder="Вікторія" minlength="2"
-          pattern="[А-Яа-яІіЇїЄєҐґ\s]+" required /></label>
+        <input
+          class="modal-input"
+          name="username"
+          id="name"
+          type="text"
+          placeholder="Вікторія"
+          minlength="2"
+          maxlength="48"
+          required
+      /></label>
 
       <label class="modal-label" for="phone">
-        Телефон*
+        <span class="modal-label-text">Телефон*</span>
 
-        <input class="modal-input" id="phone" name="phone" type="tel" placeholder="38 0_ ___"
-          pattern="+?3?8?0[0-9\s-]{9,12}" required />
+        <input
+          class="modal-input"
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="38 0_ ___"
+          pattern="^[0-9]{12}$"
+          minlength="12"
+          maxlength="12"
+          required
+        />
       </label>
       <label class="modal-label" for="comment">
-        Коментар*
+        <span class="modal-label-text">Коментар*</span>
 
-        <textarea class="modal-textarea" id="comment" name="textComment" placeholder="Ваш коментар" minlength="10"
-          maxlength="250" required></textarea>
+        <textarea
+          class="modal-textarea"
+          id="comment"
+          name="textComment"
+          placeholder="Ваш коментар"
+          minlength="2"
+          maxlength="256"
+          required
+        ></textarea>
       </label>
       <button class="modal-submit" type="submit">Надіслати заявку</button>
     </form>
