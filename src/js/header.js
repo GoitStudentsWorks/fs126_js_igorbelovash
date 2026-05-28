@@ -2,7 +2,9 @@
 const burger = document.getElementById('burgerBtn');
 const closeBtn = document.getElementById('closeBtn');
 const mobileMenu = document.getElementById('mobileMenu');
+
 const links = document.querySelectorAll('.mobile-link');
+const mobileBtn = document.querySelector('.mobile-btn'); // кнопка в мобільному меню
 
 // відкрити
 burger.addEventListener('click', () => {
@@ -30,9 +32,13 @@ links.forEach(link => {
   link.addEventListener('click', closeMenu);
 });
 
+mobileBtn.addEventListener('click', closeMenu);
+
 // закрити по ESC
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
     closeMenu();
   }
 });
+
+
