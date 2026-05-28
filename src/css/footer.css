@@ -17,6 +17,15 @@ footer {
   justify-content: center;
   align-items: center;
   transition: opacity 0.25s ease;
+  width: 100%;
+  max-width: 309px;
+}
+
+.footer__logo-icon {
+  width: 100%;
+  max-width: 309px;
+  height: auto;
+  display: block;
 }
 
 .footer__logo:hover {
@@ -52,7 +61,7 @@ footer {
 
 .footer__link:hover,
 .footer__link:focus {
-  color: #f19898;
+  color: #080c0c;
   text-decoration: underline;
 }
 

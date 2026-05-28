@@ -66,7 +66,6 @@ async function handleSubmit(event) {
     );
 
     const orderData = res.data;
-    console.log(orderData);
     iziToast.success({
       title: `${orderData.name}`,
       message: `Ви замовили ${orderData.dessertName}, номер вашого замовлення ${orderData.orderNum}`,
