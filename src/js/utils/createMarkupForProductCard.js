@@ -15,12 +15,12 @@ export default function createMarkup(arr, options = {}) {
   const cardClass = slide ? 'product-card swiper-slide' : 'product-card';
 
   return arr
-      .map(product => {
-        const { image, category, name, description, price } = product;
-        const productId = product._id;
-        const categoryName = category.name;
-  
-        return `<li class="${cardClass}" data-id="${productId}">
+    .map(product => {
+      const { image, category, name, description, price } = product;
+      const productId = product._id;
+      const categoryName = category.name;
+
+      return `<li class="${cardClass}" data-id="${productId}">
             <div class="product-img-thumb">
               <img class="product-img" src="${image}" alt="${name}"/>
             </div>
@@ -29,14 +29,14 @@ export default function createMarkup(arr, options = {}) {
             <p class="product-description">${escapeHtml(description)}</p>
             <div class="product-card-bottom">
               <p class="product-price">${price} грн</p>
-              <button class="product-card-btn" type="button" aria-label="Open product details">
+              <button class="product-card-btn" type="button" aria-label="Open product details" data-id="${productId}">
                 <svg class="product-card-svg" width="24" height="24">
                   <use href="${spriteUrl}#icon-arrow_outward"></use>
                 </svg>
               </button>
             </div>
           </li>`;
-      })
-      .join('');
+    })
+    .join('');
 }
 

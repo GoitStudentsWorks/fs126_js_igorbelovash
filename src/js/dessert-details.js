@@ -19,17 +19,17 @@ const modalIngredients = document.querySelector('.modal-ingredients');
 
 
 function generateStars(rating) {
-  const numericRating = Number(rating) || 5;
-  const totalStars = 5;
-  
-  const fullStarsCount = Math.floor(numericRating);
-  const hasHalfStar = (numericRating % 1) >= 0.25 && (numericRating % 1) < 0.75;
-  const extraFullStar = (numericRating % 1) >= 0.75 ? 1 : 0;
-  
-  const finalFullStars = fullStarsCount + extraFullStar;
-  const emptyStarsCount = totalStars - finalFullStars - (hasHalfStar ? 1 : 0);
+    const numericRating = Number(rating) || 5;
+    const totalStars = 5;
 
-  return '★'.repeat(finalFullStars) + (hasHalfStar ? '⯪' : '') + '☆'.repeat(emptyStarsCount);
+    const fullStarsCount = Math.floor(numericRating);
+    const hasHalfStar = (numericRating % 1) >= 0.25 && (numericRating % 1) < 0.75;
+    const extraFullStar = (numericRating % 1) >= 0.75 ? 1 : 0;
+
+    const finalFullStars = fullStarsCount + extraFullStar;
+    const emptyStarsCount = totalStars - finalFullStars - (hasHalfStar ? 1 : 0);
+
+    return '★'.repeat(finalFullStars) + (hasHalfStar ? '⯪' : '') + '☆'.repeat(emptyStarsCount);
 }
 
 let scrollTimeout;
@@ -48,13 +48,13 @@ function initScrollbarFade() {
 }
 
 async function openDetailsById(id) {
+
     if (!id || id === 'undefined') {
         console.error('Помилка: Спроба відкрити модалку без дійсного ID десерту.');
         return;
     }
 
     currentDessertId = id;
-    
     try {
 
         const response = await axios.get(`${BASE_URL}${id}`);
@@ -82,6 +82,7 @@ export async function handleDessertClick(event) {
     if (!targetBtn && !targetCard) return;
 
     const id = targetBtn?.dataset.id || targetBtn?.dataset.uuid || targetCard?.dataset.id;
+
     if (id) {
         openDetailsById(id);
     }
@@ -93,11 +94,11 @@ function handleOrderClick() {
     const orderEvent = new CustomEvent('open-order', {
         detail: { dessertId: currentDessertId }
     });
-          
-    document.dispatchEvent(orderEvent);    
+
+    document.dispatchEvent(orderEvent);
     console.log(`Подія 'open-order' успішно надіслана для ID: ${currentDessertId}`);
-          
-    closeModal(); 
+
+    closeModal();
 }
 
 function openModal() {
@@ -116,7 +117,7 @@ function openModal() {
 function closeModal() {
     overlay.classList.remove('is-open');
 
-    
+
     document.documentElement.classList.remove('no-scroll');
     document.body.classList.remove('no-scroll');
 
