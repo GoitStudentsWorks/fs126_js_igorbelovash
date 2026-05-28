@@ -257,11 +257,19 @@
     height: 100%;
   }
 
+  .popular-products-section .popular-products-list .product-card {
+    height: 498.7px;
+  }
+
   .popular-products-list .product-img-thumb {
     aspect-ratio: 389 / 292;
   }
 
   .popular-products-list .product-description {
-    margin-bottom: 29px;
+    margin-bottom: 24px;
+  }
+
+  .popular-products-section .popular-products-list .product-description {
+    margin-bottom: 8px;
   }
 }
