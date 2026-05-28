@@ -1,14 +1,3 @@
-.dessert-list,
-.about-us,
-.feedback,
-.faq-section,
-.footer,
-.order-modal {
-  display: none;
-}
-
-
-
 /* mobile */
 
 body.menu-open {
