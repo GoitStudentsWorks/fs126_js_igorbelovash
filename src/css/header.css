@@ -1,5 +1,4 @@
 /* mobile */
-
 body.menu-open {
   overflow: hidden;
 }
@@ -95,17 +94,6 @@ body.menu-open {
 /* Tablet */
 @media (min-width: 768px) {
 
-  .logo {
-    flex-shrink: 0;
-  }
-
-  .logo img {
-    width: 150px;
-    height: auto;
-    object-fit: contain;
-    display: block;
-  }
-
   .menu-btn {
     display: none;
   }
@@ -127,34 +115,32 @@ body.menu-open {
 
   .nav {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 0;
   }
 
   .nav-list {
     display: flex;
-    align-items: center;
     gap: 16px;
-    flex-wrap: nowrap;
   }
 
   .nav-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    font-weight: 400;
     font-size: 16px;
     line-height: 1.5;
     color: #080c0c;
-    white-space: nowrap;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-bottom-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .nav-link:hover,
+  .nav-link:focus {
+    border-bottom-color: #080C0C;
   }
 
   .nav-link:active {
-    text-decoration: underline;
-    text-decoration-skip-ink: none;
-    color: #f19898;
+    color: #F19898;
+    border-bottom-color: #F19898;
+    
+    transition: 0ms;
   }
 
   .nav-link.is-disabled {
@@ -173,7 +159,6 @@ body.menu-open {
     padding: 8px 20px;
     background: #f19898;
     border: 2px solid #f19898;
-    /* виправив ширину бордера з 1рх на 2px */
     border-radius: 100px;
     font-size: 16px;
     font-weight: 500;
@@ -182,19 +167,21 @@ body.menu-open {
     cursor: pointer;
     white-space: nowrap;
     flex-shrink: 0;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+      border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
 
   .header-btn:hover,
   .header-btn:focus {
-    background: transparent;
-    border: 2px solid #080c0c;
+    background-color: transparent;
+    border-color: #080c0c;
   }
 
   .header-btn:active {
-    background: #c07979;
-    border-color: #080c0c;
+    background-color: #F5B6B6;
+
+    transition: 0ms;
   }
 
   .header-btn:disabled {
@@ -202,8 +189,6 @@ body.menu-open {
     border: 2px solid #080c0c;
     cursor: not-allowed;
   }
-
-
 
 }
 
@@ -213,24 +198,7 @@ body.menu-open {
     gap: 32px;
   }
 
-  .nav {
-    flex-direction: row;
-    gap: 32px;
-    width: 572px;
-    height: 40px;
-  }
-
   .nav-list {
-    justify-content: space-between;
-    flex-direction: row;
     gap: 32px;
-  }
-
-  .header-btn {
-    flex-direction: row;
-    gap: 8px;
-    padding-block: 8px;
-    padding-inline: 20px;
-    width: auto;
   }
 }
