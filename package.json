@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/Know-the-game/",
+    "build": "vite build --base=/fs126_js_igorbelovash/",
     "preview": "vite preview"
   },
   "devDependencies": {
