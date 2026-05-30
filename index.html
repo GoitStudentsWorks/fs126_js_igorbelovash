@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/fs126_js_igorbelovash/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Солодка Майстерня</title>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Work+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <script type="module" crossorigin src="/fs126_js_igorbelovash/index.js"></script>
+  <link rel="modulepreload" crossorigin href="/fs126_js_igorbelovash/assets/vendor-BuOEm_2k.js">
+  <link rel="stylesheet" crossorigin href="/fs126_js_igorbelovash/assets/vendor-DIHIRIWG.css">
+  <link rel="stylesheet" crossorigin href="/fs126_js_igorbelovash/assets/index-C5sTuLCb.css">
+</head>
+
+<body>
+  <header class="header">
+  <div class="container header-container">
+    <!-- LOGO + NAME -->
+    <a href="./index.html" class="logo">
+      <img src="/fs126_js_igorbelovash/assets/company-logo-C1If7Mqh.svg" alt="Sweet Workshop logo" />
+    </a>
+
+    <!-- NAVIGATION -->
+    <div class="nav-column" id="navMenu">
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#desserts" class="nav-link">Солодощі</a></li>
+          <li><a href="#about-us" class="nav-link">Про нас</a></li>
+          <li><a href="#feedbacks" class="nav-link">Відгуки</a></li>
+          <li><a href="#faq" class="nav-link">Часті питання</a></li>
+        </ul>
+      </nav>
+
+      <!-- BUTTON -->
+      <a href="#desserts" class="header-btn">До покупок</a>
+    </div>
+
+    <!-- BURGER MENU -->
+    <button type="button" class="menu-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false"
+      aria-controls="mobileMenu">
+      <svg class="icon" width="24" height="24">
+        <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-menu"></use>
+      </svg>
+    </button>
+  </div>
+</header>
+
+  <main>
+    <section class="hero" id="hero">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">Ласкаво просимо до Солодкої Майстерні</h1>
+
+      <p class="hero-text">
+        Відкрийте для себе наші неперевершені десерти, приготовані з любов'ю та
+        увагою до деталей. Кожен шматочок — це справжнє свято смаку!
+      </p>
+
+      <a class="hero-btn" href="#feedbacks"> Що про нас думають </a>
+    </div>
+  </div>
+</section>
+
+    <section class="popular-products-section is-hidden">
+  <div class="container">
+    <h2 class="section-title popular-products-title">Наші бестселлери</h2>
+    <div class="popular-products-loader js-popular-products-loader" aria-live="polite" hidden>
+      <span class="loader"></span>
+    </div>
+    <div class="popular-products-swiper swiper">
+      <ul class="popular-products-list swiper-wrapper"></ul>
+    </div>
+    <div class="popular-slider-bottom">
+      <div class="popular-products-pagination swiper-pagination"></div>
+      <div class="popular-controls">
+        <button class="popular-btn popular-btn-prev" type="button" aria-label="Попередній слайд">
+          <svg class="popular-svg-prev" width="24" height="24">
+            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-arrow_back"></use>
+          </svg>
+        </button>
+        <button class="popular-btn popular-btn-next" type="button" aria-label="Наступний слайд">
+          <svg class="popular-svg-next" width="24" height="24">
+            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-arrow_forward"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section class="dessert-list popular-products-list" id="desserts">
+    <div class="container">
+
+        <h2 class="section-title">Солодощі</h2>
+        <p class="section-subtitle">Спробуйте наші смачні десерти, які вас здивують!</p>
+
+        <div class="dessert-list__filters">
+
+            <ul class="dessert-list__categories js-categories" aria-label="Filter by category"></ul>
+
+
+            <div class="dessert-list__select-wrap">
+                <div class="custom-select js-custom-select">
+                    <button class="custom-select__trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="custom-select__label">Всі десерти</span>
+                        <svg width="24" height="24" aria-hidden="true">
+                            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                    </button>
+                    <ul class="custom-select__dropdown" role="listbox"></ul>
+                </div>
+            </div>
+
+        </div>
+
+        <ul class="dessert-list__grid js-dessert-grid" aria-label="Desserts catalog"></ul>
+
+        <div class="dessert-list__loader js-dessert-loader" hidden>
+            <span class="loader"></span>
+        </div>
+
+        <div class="dessert-list__load-more-wrap">
+            <button type="button" class="btn btn--outline dessert-list__load-more js-load-more" hidden>
+                Завантажити ще
+            </button>
+        </div>
+
+    </div>
+</section>
+
+    <section id="about-us" class="about-us-section">
+  <div class="container">
+    <h2 class="section-title">Про нас</h2>
+    <p class="about-us-description">
+      У нашій 'Солодкій Майстерні' ми створюємо неповторні солодкі шедеври, що
+      приносять радість та задоволення. Наша місія — пропонувати високоякісні
+      десерти, які поєднують у собі вишуканий смак, свіжі інгредієнти та
+      естетичний вигляд.
+    </p>
+    <div class="swiper contact-us-gallery">
+      <ul class="contact-us-gallery-list swiper-wrapper">
+        <li class="swiper-slide">
+          <img
+            src="/fs126_js_igorbelovash/assets/image-2-CLxtZRyb.jpg"
+            srcset="/fs126_js_igorbelovash/assets/image-2-CLxtZRyb.jpg 1x, /fs126_js_igorbelovash/assets/image-2@2x-BSIlmY8Z.jpg 2x"
+            alt="Кондитер готує еклери"
+            width="644"
+            height="478"
+          />
+        </li>
+        <li class="swiper-slide">
+          <img
+            src="/fs126_js_igorbelovash/assets/image-3-Bb0f_Edb.jpg"
+            srcset="/fs126_js_igorbelovash/assets/image-3-Bb0f_Edb.jpg 1x, /fs126_js_igorbelovash/assets/image-3@2x-CeD2PkUT.jpg 2x"
+            alt="Персонал вибирає десерт з меню"
+            width="644"
+            height="478"
+          />
+        </li>
+        <li class="swiper-slide">
+          <img
+            src="/fs126_js_igorbelovash/assets/image-4-BP_17UAv.jpg"
+            srcset="/fs126_js_igorbelovash/assets/image-4-BP_17UAv.jpg 1x, /fs126_js_igorbelovash/assets/image-4@2x-D1T4npH4.jpg 2x"
+            alt="Вітрина з тістечками та десертами"
+            width="644"
+            height="478"
+          />
+        </li>
+        <li class="swiper-slide">
+          <img
+            src="/fs126_js_igorbelovash/assets/image-1-DGEb8kDu.jpg"
+            srcset="/fs126_js_igorbelovash/assets/image-1-DGEb8kDu.jpg 1x, /fs126_js_igorbelovash/assets/image-1@2x-DeEdjcGa.jpg 2x"
+            alt="Усміхнений гість смакує десерт"
+            width="644"
+            height="478"
+          />
+        </li>
+      </ul>
+      <button class="about-us-slide-btn button-prev">
+        <svg height="24" width="24">
+          <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-arrow_back"></use>
+        </svg>
+      </button>
+      <button class="about-us-slide-btn button-next">
+        <svg height="24" width="24">
+          <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-arrow_forward"></use>
+        </svg>
+      </button>
+      <div class="about-us-pagination"></div>
+    </div>
+  </div>
+</section>
+
+    <section id="feedbacks" class="feedback-section">
+  <div class="container">
+    <h2 class="feedback-h">Відгуки клієнтів</h2>
+    <p class="feedback-p">Найкращі десерти, які я коли-небудь куштував!</p>
+
+    <div class="swiper feedback-swiper">
+      <div class="feedback-loader">
+        <div class="spinner"></div>
+        <p>Завантаження відгуків...</p>
+      </div>
+
+      <ul class="swiper-wrapper" id="feedbacks-container"></ul>
+
+      <button type="button" class="feedback-slide-btn button-prev">
+        <svg height="24" width="24">
+          <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-arrow_back"></use>
+        </svg>
+      </button>
+      <button type="button" class="feedback-slide-btn button-next">
+        <svg height="24" width="24">
+          <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-arrow_forward"></use>
+        </svg>
+      </button>
+      <div class="feedback-pagination"></div>
+    </div>
+  </div>
+</section>
+
+    <section class="faq" id="faq">
+    <div class="container">
+        <h2 class="faq-title">Часті питання</h2>
+        <div class="faq-accordion">
+            <div class="faq-item">
+                <h3 class="faq-header">
+                    <button type="button" class="faq-trigger" aria-expanded="false">
+                        <span class="faq-question-text">1. Які способи оплати ви приймаєте?</span>
+
+                        <svg class="faq-icon" width="32" height="32">
+                            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                    </button>
+                </h3>
+                <div class="faq-panel">
+                    <p class="faq-text">Ми приймаємо оплату онлайн банківськими картками Visa та Mastercard, через
+                        платіжні системи Apple Pay та Google Pay, а
+                        також готівкою кур'єру при отриманні замовлення.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-header">
+                    <button type="button" class="faq-trigger" aria-expanded="false">
+                        <span class="faq-question-text">2. Чи є у вас доставка?</span>
+
+                        <svg class="faq-icon" width="32" height="32">
+                            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                    </button>
+                </h3>
+                <div class="faq-panel">
+                    <p class="faq-text">Так, ми здійснюємо доставку по всьому місту. Вартість та умови доставки залежать
+                        від вашого району, деталі можна
+                        уточнити при оформленні замовлення.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-header">
+                    <button type="button" class="faq-trigger" aria-expanded="false">
+                        <span class="faq-question-text">3. Як швидко здійснюється доставка?</span>
+
+                        <svg class="faq-icon" width="32" height="32">
+                            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                    </button>
+                </h3>
+                <div class="faq-panel">
+                    <p class="faq-text">Зазвичай доставка займає від 60 до 90 хвилин з моменту підтвердження замовлення.
+                        У пікові години час доставки може бути
+                        збільшений, про що ми вас обов'язково повідомимо.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-header">
+                    <button type="button" class="faq-trigger" aria-expanded="false">
+                        <span class="faq-question-text">4. Чи можна забрати замовлення самостійно?</span>
+
+                        <svg class="faq-icon" width="32" height="32">
+                            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                    </button>
+                </h3>
+                <div class="faq-panel">
+                    <p class="faq-text">Так, ви можете забрати своє замовлення самостійно за адресою вулиця Богдана
+                        Хмельницького 40/25 Київ, у робочі години магазину.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-header">
+                    <button type="button" class="faq-trigger" aria-expanded="false">
+                        <span class="faq-question-text">5. Чи пропонуєте ви десерти для людей з особливими дієтичними
+                            потребами (безглютенові, безлактозні, веганські)?</span>
+
+                        <svg class="faq-icon" width="32" height="32">
+                            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                    </button>
+                </h3>
+                <div class="faq-panel">
+                    <p class="faq-text">Ми постійно розширюємо наш асортимент. Наразі у нас є обмежений вибір
+                        безглютенових та безлактозних десертів. Будь
+                        ласка, перегляньте наш каталог або зв'яжіться з нами для отримання детальної інформації.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-header">
+                    <button type="button" class="faq-trigger" aria-expanded="false">
+                        <span class="faq-question-text">6. Як я можу зробити замовлення на індивідуальний торт?</span>
+
+                        <svg class="faq-icon" width="32" height="32">
+                            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                    </button>
+                </h3>
+                <div class="faq-panel">
+                    <p class="faq-text">Для замовлення індивідуального торта, будь ласка, зв'яжіться з нашим менеджером
+                        за телефоном +380664254525
+                        або залиште заявку на сайті. Ми обговоримо всі деталі дизайну, начинки та терміни виконання.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-header">
+                    <button type="button" class="faq-trigger" aria-expanded="false">
+                        <span class="faq-question-text">7. Чи можна змінити або скасувати замовлення після його
+                            оформлення?</span>
+
+                        <svg class="faq-icon" width="32" height="32">
+                            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                    </button>
+                </h3>
+                <div class="faq-panel">
+                    <p class="faq-text">Якщо вам потрібно змінити або скасувати замовлення, будь ласка, негайно
+                        зв'яжіться з нами за телефоном. Можливість
+                        внесення змін залежить від етапу, на якому знаходиться ваше замовлення.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-header">
+                    <button type="button" class="faq-trigger" aria-expanded="false">
+                        <span class="faq-question-text">8. Який термін зберігання ваших десертів?</span>
+
+                        <svg class="faq-icon" width="32" height="32">
+                            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                    </button>
+                </h3>
+                <div class="faq-panel">
+                    <p class="faq-text">Термін зберігання десертів залежить від їхнього типу та інгредієнтів.
+                        Зазвичай десерти рекомендується вживати протягом
+                        24-72 годин. Точна інформація про термін зберігання вказана на упаковці кожного виробу.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-header">
+                    <button type="button" class="faq-trigger" aria-expanded="false">
+                        <span class="faq-question-text">9. Чи є у вас програма лояльності або знижки для постійних
+                            клієнтів?</span>
+
+                        <svg class="faq-icon" width="32" height="32">
+                            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                    </button>
+                </h3>
+                <div class="faq-panel">
+                    <p class="faq-text">Так, ми цінуємо наших постійних клієнтів! Деталі нашої програми лояльності
+                        та діючих акцій ви можете знайти на окремій
+                        сторінці нашого сайту або уточнити у менеджера.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-header">
+                    <button type="button" class="faq-trigger" aria-expanded="false">
+                        <span class="faq-question-text">10. Що робити, якщо у мене є скарга або пропозиція?</span>
+
+                        <svg class="faq-icon" width="32" height="32">
+                            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-keyboard_arrow_down"></use>
+                        </svg>
+                    </button>
+                </h3>
+                <div class="faq-panel">
+                    <p class="faq-text">Ми завжди раді зворотному зв'язку! Якщо у вас виникли питання, скарги або
+                        пропозиції, будь ласка, напишіть нам на
+                        електронну пошту thesweetworkshop@gmail.com або зателефонуйте. Ваша думка допомагає нам ставати
+                        кращими.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  </main>
+
+  <footer class="footer">
+  <div class="container footer__container">
+    <a href="./index.html" class="footer__logo" aria-label="Солодка Майстерня">
+      <svg class="footer__logo-icon" width="309" height="132">
+        <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-Company-Logo"></use>
+      </svg>
+    </a>
+    <nav class="footer__nav">
+      <ul class="footer__list">
+        <li><a href="#desserts" class="footer__link">Солодощі</a></li>
+        <li><a href="#about-us" class="footer__link">Про нас</a></li>
+        <li><a href="#feedbacks" class="footer__link">Відгуки</a></li>
+        <li><a href="#faq" class="footer__link">Часті питання</a></li>
+      </ul>
+    </nav>
+    <ul class="footer__socials">
+      <li>
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer__social-link"
+          aria-label="Facebook"
+        >
+          <svg class="footer__social-icon">
+            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-Facebook"></use>
+          </svg>
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer__social-link"
+          aria-label="Instagram"
+        >
+          <svg class="footer__social-icon">
+            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-Instagram"></use>
+          </svg>
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="https://www.youtube.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer__social-link"
+          aria-label="Youtube"
+        >
+          <svg class="footer__social-icon">
+            <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-Youtube"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+    <div class="footer__divider"></div>
+    <p class="footer__copy">
+      © <span id="year"></span> Солодка Майстерня. Усі права захищені.
+    </p>
+  </div>
+</footer>
+
+  <!-- MOBILE NAVBAR -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog">
+  <!-- top bar -->
+  <div class="mobile-menu-top">
+    <a href="./index.html" class="logo" aria-label="Солодка Майстерня">
+      <svg class="logo-icon" width="151" height="65">
+        <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-Company-Logo"></use>
+      </svg>
+    </a>
+
+    <button
+      type="button"
+      class="close-btn"
+      id="closeBtn"
+      aria-label="Close menu"
+    >
+      <svg width="24" height="24">
+        <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-close"></use>
+      </svg>
+    </button>
+  </div>
+
+  <!-- nav links -->
+  <nav class="mobile-nav">
+    <ul class="mobile-nav-list">
+      <li><a href="#desserts" class="mobile-link">Солодощі</a></li>
+      <li><a href="#about-us" class="mobile-link">Про нас</a></li>
+      <li><a href="#feedbacks" class="mobile-link">Відгуки</a></li>
+      <li><a href="#faq" class="mobile-link">Часті питання</a></li>
+    </ul>
+  </nav>
+
+  <!-- button -->
+  <div class="mobile-bottom">
+    <a href="#desserts" class="mobile-btn">До покупок</a>
+  </div>
+</div>
+
+  <div class="overlay-details">
+    <div class="modal">
+        <button type="button" class="modal-details-close" aria-label="Close modal">
+            <svg class="modal-icon-close" width="24" height="24">
+                <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-close"></use>
+            </svg>
+        </button>
+        <div class="modal-info">
+            <div class="modal-img-thumb">
+                <!-- Тимчасова заглушка для картинки -->
+                <img class="modal-img" src="" alt="Десерт" />
+            </div>
+            <div class="modal-content-wrapper">
+                <h3 class="modal-details-title">Назва десерту</h3>
+                <p class="modal-price">0 грн</p>
+
+                <div class="modal-rating">★★★★★</div>
+
+                <p class="modal-description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus error hic delectus neque vitae quod
+                    pariatur soluta cum id excepturi reprehenderit sapiente dolorem aut assumenda amet, corporis
+                    nostrum, impedit repellendus rem quaerat accusantium ipsum, adipisci veritatis deleniti? Ducimus
+                    atque dolorum reiciendis, consequuntur similique accusamus facilis aut dicta quasi placeat, corrupti
+                    velit sunt explicabo, aspernatur nisi facere laborum. Reprehenderit sed, debitis quo est delectus
+                    voluptatum? Debitis doloribus, in blanditiis architecto placeat et repellendus hic culpa nemo fugit
+                    voluptatum amet commodi officiis minus dolores, reiciendis reprehenderit libero voluptates id eaque
+                    saepe optio quis suscipit. Dicta, eveniet. Nulla ducimus consectetur molestiae, tempore vitae
+                    numquam incidunt quis facere, quisquam quas dolor modi voluptatum nam dolorum quibusdam consequuntur
+                    officiis dignissimos minus ab! Sit autem excepturi minus unde consectetur sapiente dolor,
+                    necessitatibus minima culpa dolorem eos accusamus. Saepe aperiam labore placeat, necessitatibus
+                    ipsum velit voluptatem explicabo repudiandae expedita possimus tempora natus quasi consectetur quia
+                    cum odit!
+                </p>
+
+                <p class="modal-ingredients">
+                    <strong>Склад:</strong> Інгредієнти десерту.
+                </p>
+                <div class="modal-sub-btn">
+                    <button type="button" class="to-order-btn js-open-order-btn">
+                        Перейти до замовлення
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  <div id="orderModal" class="modal-container">
+  <div class="modal-box">
+    <button class="modal-close" type="button" aria-label="Close modal">
+      <svg class="modal-close-icon" width="24" height="24">
+        <use href="/fs126_js_igorbelovash/assets/sprite-BCrGRZ9p.svg#icon-close"></use>
+      </svg>
+    </button>
+    <h2 class="modal-title">Оформлення замовлення</h2>
+    <form class="modal-form">
+      <label class="modal-label" for="name">
+        <span class="modal-label-text">Ім'я*</span>
+
+        <input
+          class="modal-input"
+          name="username"
+          id="name"
+          type="text"
+          placeholder="Вікторія"
+          minlength="2"
+          maxlength="48"
+          required
+      /></label>
+
+      <label class="modal-label" for="phone">
+        <span class="modal-label-text">Телефон*</span>
+
+        <input
+          class="modal-input"
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="38 0_ ___"
+          pattern="^[0-9]{12}$"
+          minlength="12"
+          maxlength="12"
+          required
+        />
+      </label>
+      <label class="modal-label" for="comment">
+        <span class="modal-label-text">Коментар*</span>
+
+        <textarea
+          class="modal-textarea"
+          id="comment"
+          name="textComment"
+          placeholder="Ваш коментар"
+          minlength="2"
+          maxlength="256"
+          required
+        ></textarea>
+      </label>
+      <button class="modal-submit" type="submit">Надіслати заявку</button>
+    </form>
+  </div>
+</div>
+
+
+</body>
+
+</html>
